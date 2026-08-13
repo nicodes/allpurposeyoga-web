@@ -203,10 +203,15 @@ const path = Astro.url.pathname;
   }
 
   .main-nav a:hover,
-  .main-nav a.active,
-  .main-nav summary:hover,
-  .main-nav summary.active {
+  .main-nav summary:hover {
     color: var(--gold);
+  }
+
+  .main-nav a.active,
+  .main-nav summary.active {
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-underline-offset: 4px;
   }
 
   .dropdown {

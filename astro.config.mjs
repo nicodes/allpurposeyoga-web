@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://allpurposeyoga.com',
   trailingSlash: 'always',
+  build: {
+    inlineStylesheets: 'always'
+  },
 
   vite: {
     plugins: [tailwindcss()]

@@ -8,6 +8,8 @@ interface Props {
   widths?: number[];
   sizes?: string;
   loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  quality?: number;
   class?: string;
 }
 
@@ -17,6 +19,8 @@ const {
   widths = [480, 768, 1024],
   sizes = '100vw',
   loading = 'lazy',
+  fetchpriority = 'auto',
+  quality,
   class: className,
 } = Astro.props;
 ---
@@ -27,6 +31,8 @@ const {
   widths={widths}
   sizes={sizes}
   loading={loading}
+  fetchpriority={fetchpriority}
+  quality={quality}
   format="webp"
   class={className}
 />

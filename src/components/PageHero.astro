@@ -1,6 +1,5 @@
 ---
-import { getImage } from 'astro:assets';
-import { resolveImage } from '../utils/images';
+import Img from './Img.astro';
 
 interface Props {
   title: string;
@@ -8,26 +7,24 @@ interface Props {
 }
 
 const { title, image } = Astro.props;
-
-const mobile = await getImage({ src: resolveImage(image), width: 768, format: 'webp' });
-const desktop = await getImage({ src: resolveImage(image), width: 1920, format: 'webp' });
 ---
 
-<section
-  class="page-hero"
-  style={`--hero-mobile: url('${mobile.src}'); --hero-desktop: url('${desktop.src}')`}
->
+<section class="page-hero">
+  <Img
+    src={image}
+    alt=""
+    widths={[640, 1440]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    quality={55}
+    class="page-hero-img"
+  />
   <h1>{title}</h1>
 </section>
 
 <style>
   .page-hero {
-    background-image: var(--hero-mobile);
-  }
-
-  @media (min-width: 768px) {
-    .page-hero {
-      background-image: var(--hero-desktop);
-    }
+    overflow: hidden;
   }
 </style>
