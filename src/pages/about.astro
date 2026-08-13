@@ -128,11 +128,14 @@ import { teachers } from '../data/teachers';
     color: var(--maroon);
     font-weight: 600;
     cursor: pointer;
-    list-style: none;
   }
 
   details summary::-webkit-details-marker {
     display: none;
+  }
+
+  details summary::marker {
+    content: "";
   }
 
   details summary::after {

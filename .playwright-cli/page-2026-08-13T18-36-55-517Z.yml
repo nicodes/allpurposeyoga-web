@@ -1,0 +1,83 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "All Purpose Yoga home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "All Purpose Yoga" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Boulder, CO" [ref=e9] [cursor=pointer]:
+            - /url: /connect/
+            - img [ref=e10]
+            - text: Boulder, CO
+          - link "203-520-5145" [ref=e12] [cursor=pointer]:
+            - /url: tel:2035205145
+            - img [ref=e13]
+            - text: 203-520-5145
+        - checkbox "Toggle navigation"
+        - navigation "Main" [ref=e15]:
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Schedule" [ref=e18] [cursor=pointer]:
+                - /url: /schedule/
+            - listitem [ref=e19]:
+              - link "Classes" [ref=e20] [cursor=pointer]:
+                - /url: /classes/
+            - listitem [ref=e21]:
+              - link "Events" [ref=e22] [cursor=pointer]:
+                - /url: /events/
+            - listitem [ref=e23]:
+              - group [ref=e24]:
+                - generic "Trainings ▾" [ref=e25] [cursor=pointer]
+            - listitem [ref=e26]:
+              - link "Pricing" [ref=e27] [cursor=pointer]:
+                - /url: /pricing/
+            - listitem [ref=e28]:
+              - link "About Us" [ref=e29] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e30]:
+              - link "Connect" [ref=e31] [cursor=pointer]:
+                - /url: /connect/
+  - main [ref=e32]:
+    - heading "Schedule" [level=1] [ref=e34]
+  - contentinfo [ref=e47]:
+    - generic [ref=e48]:
+      - link "All Purpose Yoga home" [ref=e49] [cursor=pointer]:
+        - /url: /
+        - img "All Purpose Yoga" [ref=e50]
+      - generic [ref=e51]:
+        - strong [ref=e52]: Boulder
+        - paragraph [ref=e53]:
+          - text: 2825 Wilderness Place
+          - text: Boulder, CO 80301
+        - link "info@allpurposeyoga.com" [ref=e54] [cursor=pointer]:
+          - /url: mailto:info@allpurposeyoga.com
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - link "Facebook" [ref=e57] [cursor=pointer]:
+            - /url: https://www.facebook.com/ThemeFusion-101565403356430/
+            - img [ref=e58]
+          - link "X" [ref=e60] [cursor=pointer]:
+            - /url: https://twitter.com/theme_fusion
+            - img [ref=e61]
+          - link "Instagram" [ref=e63] [cursor=pointer]:
+            - /url: https://www.instagram.com/allpurposeyoga/
+            - img [ref=e64]
+        - paragraph [ref=e66]: We acknowledge that we live and are practicing on Arapaho, Ute and Cheyenne national territory and that Colorado’s Front Range is home to many Native peoples.
+        - paragraph [ref=e67]:
+          - text: Nature photos featured on this website are courtesy of Travis Enzensperger. For more of his creativity and environmental perspectives visit
+          - link "travisenzensperger.com" [ref=e68] [cursor=pointer]:
+            - /url: https://travisenzensperger.com/
+    - generic [ref=e69]:
+      - paragraph [ref=e70]:
+        - link "Stripe Privacy Policy" [ref=e71] [cursor=pointer]:
+          - /url: https://stripe.com/privacy
+        - text: "|"
+        - link "Momence Privacy Policy" [ref=e72] [cursor=pointer]:
+          - /url: https://momence.com/privacy-policy/documents/Momence-Privacy-Policy.pdf
+      - paragraph [ref=e73]:
+        - text: "© Copyright 2026 All Purpose Yoga | All rights reserved | Built by:"
+        - link "Overhaulics" [ref=e74] [cursor=pointer]:
+          - /url: https://overhaulics.com

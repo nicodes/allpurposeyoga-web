@@ -1,11 +1,16 @@
 ---
-const nav = [
+interface NavItem {
+  label: string;
+  href?: string;
+  children?: { label: string; href: string; external?: boolean }[];
+}
+
+const nav: NavItem[] = [
   { label: 'Schedule', href: '/schedule/' },
   { label: 'Classes', href: '/classes/' },
   { label: 'Events', href: '/events/' },
   {
     label: 'Trainings',
-    href: '#',
     children: [
       { label: 'Mantra Magic', href: '/nada-yoga/' },
       {
@@ -136,6 +141,11 @@ const path = Astro.url.pathname;
     pointer-events: none;
   }
 
+  .nav-toggle:focus-visible ~ .hamburger {
+    outline: 2px solid var(--maroon);
+    outline-offset: 2px;
+  }
+
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -187,11 +197,14 @@ const path = Astro.url.pathname;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    list-style: none;
   }
 
   .main-nav summary::-webkit-details-marker {
     display: none;
+  }
+
+  .main-nav summary::marker {
+    content: "";
   }
 
   .main-nav summary::after {
