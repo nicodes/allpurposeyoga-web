@@ -4,25 +4,29 @@ import Base from '../layouts/Layout.astro';
 import Img from '../components/Img.astro';
 import { resolveImage } from '../utils/images';
 
-const HERO = '/wp-content/uploads/2025/12/IMG_0033.jpeg';
-const heroMobile = await getImage({ src: resolveImage(HERO), width: 768, format: 'webp' });
-const heroDesktop = await getImage({ src: resolveImage(HERO), width: 1920, format: 'webp' });
 const tetons = await getImage({
   src: resolveImage('/wp-content/uploads/2025/08/Tetons-compressed.png'),
   width: 1600,
   format: 'webp',
+  quality: 60,
 });
 ---
 
 <Base
   title="Home - All Purpose Yoga"
   description="All Purpose Yoga is a small locally operated and female owned yoga studio in Boulder, CO. View our class schedule, events, trainings, and pricing."
-  heroImage={HERO}
 >
-  <section
-    class="home-hero"
-    style={`--hero-mobile: url('${heroMobile.src}'); --hero-desktop: url('${heroDesktop.src}')`}
-  >
+  <section class="home-hero">
+    <Img
+      src="/wp-content/uploads/2025/12/IMG_0033.jpeg"
+      alt=""
+      widths={[640, 1440]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+      quality={55}
+      class="home-hero-img"
+    />
     <div class="home-hero-inner container">
       <p class="hero-eyebrow">connect with</p>
       <h1>your purpose<br />your being</h1>
@@ -121,17 +125,20 @@ const tetons = await getImage({
     display: flex;
     align-items: center;
     min-height: 88vh;
-    background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%),
-      var(--hero-mobile) center / cover no-repeat;
+    overflow: hidden;
   }
 
-  @media (min-width: 768px) {
-    .home-hero {
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%),
-        var(--hero-desktop) center / cover no-repeat;
-    }
+  .home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%);
+  }
+
+  .home-hero-inner {
+    position: relative;
+    z-index: 2;
   }
 
   .home-hero-inner {

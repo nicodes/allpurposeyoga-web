@@ -1,24 +1,14 @@
 ---
-import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { resolveImage } from '../utils/images';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description?: string;
-  heroImage?: string;
 }
 
-const { title, description, heroImage } = Astro.props;
-
-const heroMobile = heroImage
-  ? await getImage({ src: resolveImage(heroImage), width: 768, format: 'webp' })
-  : null;
-const heroDesktop = heroImage
-  ? await getImage({ src: resolveImage(heroImage), width: 1920, format: 'webp' })
-  : null;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,8 +20,6 @@ const heroDesktop = heroImage
     {description && <meta name="description" content={description} />}
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
-    {heroMobile && <link rel="preload" as="image" href={heroMobile.src} media="(max-width: 767px)" />}
-    {heroDesktop && <link rel="preload" as="image" href={heroDesktop.src} media="(min-width: 768px)" />}
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
