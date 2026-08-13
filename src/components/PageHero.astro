@@ -1,0 +1,12 @@
+---
+interface Props {
+  title: string;
+  image: string;
+}
+
+const { title, image } = Astro.props;
+---
+
+<section class="page-hero" style={`background-image: url('${image}')`}>
+  <h1>{title}</h1>
+</section>

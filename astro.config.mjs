@@ -1,13 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import qwikdev from '@qwikdev/astro';
-
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [qwikdev()],
+  site: 'https://allpurposeyoga.com',
+  trailingSlash: 'always',
 
   vite: {
     plugins: [tailwindcss()]

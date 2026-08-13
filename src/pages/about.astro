@@ -1,0 +1,167 @@
+---
+import Base from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import { teachers } from '../data/teachers';
+---
+
+<Base title="About Us - All Purpose Yoga">
+  <PageHero
+    title="About Us"
+    image="/wp-content/uploads/2026/07/Gemini_Generated_Image_t90fpjt90fpjt90f-compressed.png"
+  />
+
+  <section class="section">
+    <div class="container intro-grid">
+      <div>
+        <p class="kicker">What is our intention?</p>
+        <h2>It’s All In The Name</h2>
+        <p>
+          The name ‘All Purpose Yoga’ materialized from a place of versatility, inclusivity and
+          adaptability. All levels, all goals, all people, for everyday life. With a commitment to
+          facilitating an environment that is comfortable and welcoming, our highly skilled teachers
+          cater to all student levels and none of our classes have added heat.
+        </p>
+        <p>
+          At All Purpose Yoga, we are dedicated to being a purpose driven organization. Seva Yoga is
+          the Yoga of Selfless Service. Seva stems from two branches of Yoga; Karma Yoga (Yoga of
+          Action) and Bhakti Yoga (Devotion inspired by Divine Love).
+        </p>
+      </div>
+      <img
+        src="/wp-content/uploads/2025/12/IMG_0068.jpeg"
+        alt="All Purpose Yoga community"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <section class="section teachers-section">
+    <div class="container">
+      <p class="kicker center">get to know your</p>
+      <h2 class="center">inspired teachers</h2>
+
+      <div class="teacher-grid">
+        {teachers.map((t) => (
+          <article class="card teacher-card">
+            <img src={t.image} alt={t.name} loading="lazy" />
+            <div class="teacher-body">
+              <h3>{t.name}</h3>
+              <details>
+                <summary>{t.bioLabel}</summary>
+                <div class="bio">
+                  <img src={t.portrait} alt={t.modalName ?? t.name} loading="lazy" />
+                  <h4>{t.modalName ?? t.name}</h4>
+                  {t.bio.split('\n\n').map((p) => <p>{p}</p>)}
+                </div>
+              </details>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band center">
+    <div class="container">
+      <p class="kicker">book a</p>
+      <h2>class or workshop</h2>
+      <a class="btn" href="/classes/">Browse Classes</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .intro-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .intro-grid img {
+    border-radius: 12px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .teachers-section {
+    background: var(--beige);
+  }
+
+  .teacher-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .teacher-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .teacher-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .teacher-card > img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .teacher-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+
+  .teacher-body h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  details summary {
+    color: var(--maroon);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary::after {
+    content: " +";
+  }
+
+  details[open] summary::after {
+    content: " −";
+  }
+
+  .bio {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(51, 51, 51, 0.1);
+  }
+
+  .bio img {
+    width: 140px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .bio h4 {
+    font-family: var(--font-display);
+    color: var(--maroon);
+    font-size: 1.25rem;
+  }
+
+  .cta-band {
+    background: var(--cream);
+  }
+</style>
