@@ -1,0 +1,133 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <a href="/" class="footer-logo" aria-label="All Purpose Yoga home">
+      <img src="/wp-content/uploads/2025/08/AllPurposeYogaRound-compressed.png" alt="All Purpose Yoga" width="200" height="201" />
+    </a>
+
+    <div class="footer-contact">
+      <strong>Boulder</strong>
+      <p>
+        2825 Wilderness Place<br />
+        Boulder, CO 80301
+      </p>
+      <a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a>
+    </div>
+
+    <div class="footer-social">
+      <div class="icons">
+        <a href="https://www.facebook.com/ThemeFusion-101565403356430/" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.1-2.45-.1-2.4 0-4.05 1.47-4.05 4.15v2.3H7.5V13h2.7v8h3.3z"/></svg>
+        </a>
+        <a href="https://twitter.com/theme_fusion" title="X" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M17.75 3H21l-7.09 8.1L22.25 21h-6.56l-5.14-6.03L4.7 21H1.45l7.58-8.66L1.75 3h6.72l4.65 5.47L17.75 3zm-1.15 16.1h1.8L7.53 4.8H5.6l11 14.3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/allpurposeyoga/" title="Instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 8.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8zm0-2.1a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm6.75-.35a1.24 1.24 0 1 1-2.48 0 1.24 1.24 0 0 1 2.48 0zM12 4.2c-1.68 0-1.88.01-2.54.04-1.92.09-3.18.4-4.1 1.32-.92.92-1.23 2.18-1.32 4.1C4.01 10.32 4 10.52 4 12.2s.01 1.88.04 2.54c.09 1.92.4 3.18 1.32 4.1.92.92 2.18 1.23 4.1 1.32.66.03.86.04 2.54.04s1.88-.01 2.54-.04c1.92-.09 3.18-.4 4.1-1.32.92-.92 1.23-2.18 1.32-4.1.03-.66.04-.86.04-2.54s-.01-1.88-.04-2.54c-.09-1.92-.4-3.18-1.32-4.1-.92-.92-2.18-1.23-4.1-1.32-.66-.03-.86-.04-2.54-.04z"/></svg>
+        </a>
+      </div>
+      <p>
+        We acknowledge that we live and are practicing on Arapaho, Ute and Cheyenne national
+        territory and that Colorado’s Front Range is home to many Native peoples.
+      </p>
+      <p>
+        Nature photos featured on this website are courtesy of Travis Enzensperger. For more of his
+        creativity and environmental perspectives visit
+        <a href="https://travisenzensperger.com/" target="_blank" rel="noopener">travisenzensperger.com</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>
+      <a href="https://stripe.com/privacy" target="_blank" rel="noopener">Stripe Privacy Policy</a>
+      |
+      <a href="https://momence.com/privacy-policy/documents/Momence-Privacy-Policy.pdf" target="_blank" rel="noopener">Momence Privacy Policy</a>
+    </p>
+    <p>
+      © Copyright {year} All Purpose Yoga | All rights reserved | Built by:
+      <a href="https://overhaulics.com" target="_blank" rel="nofollow noopener">Overhaulics</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--cream);
+    padding-top: 35px;
+    font-size: 0.875rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+    justify-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 200px 1fr 1.5fr;
+      text-align: left;
+      justify-items: start;
+      align-items: start;
+    }
+  }
+
+  .footer-logo img {
+    width: 200px;
+    max-width: 100%;
+  }
+
+  .footer-contact strong {
+    display: block;
+    color: var(--maroon);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .icons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .icons {
+      justify-content: flex-start;
+    }
+  }
+
+  .icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--maroon);
+    color: var(--white);
+  }
+
+  .icons a:hover {
+    background: var(--gold);
+    color: var(--white);
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    border-top: 1px solid rgba(51, 51, 51, 0.1);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    margin: 0.25rem 0;
+  }
+</style>

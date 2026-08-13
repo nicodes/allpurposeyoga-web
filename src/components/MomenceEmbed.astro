@@ -1,0 +1,46 @@
+---
+interface Props {
+  tagIds?: string;
+  noscriptText: string;
+}
+
+const { tagIds = '[]', noscriptText } = Astro.props;
+---
+
+<section class="section embed-section">
+  <div class="container">
+    <div class="card embed-card">
+      <script
+        async
+        type="module"
+        host_id="87939"
+        teacher_ids="[]"
+        location_ids="[]"
+        tag_ids={tagIds}
+        default_filter="show-all"
+        locale="en"
+        src="https://momence.com/plugin/host-schedule/host-schedule.js"
+      ></script>
+      <noscript>
+        <p class="center" style="padding: 2rem;">
+          {noscriptText}
+          <a href="https://momence.com/All-Purpose-Yoga" target="_blank" rel="noopener">Momence</a>.
+        </p>
+      </noscript>
+    </div>
+  </div>
+</section>
+
+<style>
+  .embed-section {
+    background: linear-gradient(180deg, rgba(234, 225, 214, 0.61) 0%, rgba(234, 225, 214, 0.33) 100%);
+  }
+
+  .embed-card {
+    border-radius: 12px;
+    padding: 1rem;
+    --momenceColorBackground: #fbfbfb;
+    --momenceColorPrimary: 160, 44, 73;
+    --momenceColorBlack: 3, 1, 13;
+  }
+</style>

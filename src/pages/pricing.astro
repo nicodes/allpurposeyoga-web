@@ -1,0 +1,188 @@
+---
+import Base from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const plans = [
+  {
+    name: 'For New students',
+    price: '$50',
+    unit: 'for 2 weeks',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/%2450-For-2-Weeks-Unlimited-/668633?sessionId=124183999',
+  },
+  {
+    name: 'Drop IN',
+    price: '$28',
+    unit: 'for 1 class',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/3-Classes-for-%2440/519940',
+  },
+  {
+    name: 'UNLIMITED',
+    price: '$129',
+    unit: 'a month',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/Sangha-Unlimited-Membership/853879',
+  },
+  {
+    name: 'Reduced Rate Unlimited',
+    price: '$99',
+    unit: 'a month',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/Sangha-Student-Unlimited-Membership/853881',
+  },
+  {
+    name: '5 Class Card',
+    note: '3 Month Expiration',
+    price: '$130',
+    unit: 'No Auto Renew',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/5-Class-Card/570277',
+  },
+  {
+    name: '10 Class Card',
+    note: '6 Month Expiration',
+    price: '$220',
+    unit: 'No Auto Renew',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/10-Class-Card/570278',
+  },
+  {
+    name: '20 Class Card',
+    note: '12 Month Expiration',
+    price: '$400',
+    unit: 'No Auto Renew',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/20-Class-Card/570283',
+  },
+];
+
+const details = [
+  'Every student must have their own account, classes are non-transferrable.',
+  'Please note, class cards have expiration dates!',
+  'Request to cancel membership to be emailed in writing with advance notice of auto refresh to info@allpurposeyoga.com',
+  'Free use of yoga mats available in the studio',
+  'Classes are available live stream',
+  'Members can bring two new friends to practice a month',
+  'No refunds, we are a small studio. Thank you for your support.',
+];
+---
+
+<Base title="Pricing - All Purpose Yoga">
+  <PageHero
+    title="Pricing"
+    image="/wp-content/uploads/2026/07/Gemini_Generated_Image_wytgktwytgktwytg-compressed.png"
+  />
+
+  <section class="section">
+    <div class="container">
+      <p class="kicker center">membership options that</p>
+      <h2 class="center">meet your needs</h2>
+      <p class="center intro">
+        We’re honored to offer our special reduced membership rate to:<br />
+        <strong>Students • First Responders • Military • Seniors • Healthcare Workers • Teachers</strong>
+      </p>
+
+      <div class="pricing-grid">
+        {plans.map((plan) => (
+          <article class="card pricing-card">
+            <h3>{plan.name}</h3>
+            {plan.note && <p class="note">{plan.note}</p>}
+            <p class="price">{plan.price}</p>
+            <p class="unit">{plan.unit}</p>
+            <a class="btn" href={plan.href} target="_blank" rel="noopener">Purchase Here</a>
+          </article>
+        ))}
+      </div>
+
+      <div class="pricing-gallery">
+        <img src="/wp-content/uploads/2025/12/IMG_0067.jpeg" alt="Studio practice" loading="lazy" />
+        <img src="/wp-content/uploads/2025/12/IMG_0019.jpeg" alt="Studio space" loading="lazy" />
+        <img src="/wp-content/uploads/2025/10/IMG_0014-compressed.jpg" alt="Yoga class" loading="lazy" />
+      </div>
+
+      <ul class="details-list">
+        {details.map((d) => <li>{d}</li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    max-width: 640px;
+    margin: 0 auto 3rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .pricing-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pricing-card {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .pricing-card h3 {
+    margin-bottom: 0;
+  }
+
+  .note {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--olive);
+    margin: 0;
+  }
+
+  .price {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--maroon);
+    margin: 0.5rem 0 0;
+  }
+
+  .unit {
+    margin: 0 0 1.25rem;
+    color: var(--text);
+  }
+
+  .pricing-gallery {
+    display: grid;
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .pricing-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pricing-gallery img {
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .details-list {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-left: 1.25rem;
+  }
+
+  .details-list li {
+    margin-bottom: 0.5rem;
+  }
+</style>

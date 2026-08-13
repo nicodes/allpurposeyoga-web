@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+
+const topics = [
+  'The history of sound and mantra in yoga traditions',
+  'Sound as one of the earliest forms of yoga practice',
+  'Vedic teachings and the evolution of mantra',
+  'The role of sound in healing, spirituality, and ritual across cultures',
+  'Understanding vibration, resonance, and energetica awareness',
+  'The science of sound and nervous system regulation',
+  'Using sound to support meditation and mindfulness',
+  'Healing and strengthening your relationship with your voice',
+  'Building confidence in vocal expression and being heard',
+  'Authentic communication through sound practices',
+  'Integrating sound into yoga classes and workshops',
+  'Creating intentional soundscapes for practice',
+];
+
+const practices = [
+  'Mantra chanting and repetition',
+  'Vocal toning and resonance exercises',
+  'Breath and sound integration',
+  'Call-and-response chanting',
+  'Rhythm exploration and group sounding',
+  'Singing bowl meditation and application',
+  'Introduction to using instruments in yoga settings',
+  'Sound-based meditation techniques',
+  'Listening practices and deep auditory awareness',
+  'Voice activation exercises',
+  'Group chanting and community sound experiences',
+  'Guided practices for incorporating sound into teaching',
+  'Exploration of silence as a complementary practice to sound',
+  'Practices for nervous system regulation through sound and vibration',
+];
+---
+
+<Base title="Mantra Magic - All Purpose Yoga">
+  <PageHero title="Mantra Magic" image="/wp-content/uploads/2025/08/Classes-compressed.png" />
+
+  <section class="section">
+    <div class="container">
+      <div class="center heading-block">
+        <h2>Sound Healing and Nada Yoga</h2>
+        <p class="subline">with Melissa Carey</p>
+      </div>
+
+      <div class="two-col">
+        <img
+          src="/wp-content/uploads/2025/11/Image-9-25-25-at-1.50-PM.jpeg"
+          alt="Mantra Magic training"
+          loading="lazy"
+        />
+        <div>
+          <h3>About Yin Yoga Training</h3>
+          <p><strong>Contact Hours:</strong> Feb 8, 15, 22 &amp; Mar 1 from 11:30am to 5pm at All Purpose Yoga</p>
+          <p><strong>Non-contact Hours:</strong> Approximately 6</p>
+          <p>
+            100% attendance is strongly encouraged barring unexpected emergencies or illness. There
+            are no make-up sessions. All hours of study can be logged with Yoga Alliance under
+            continuing education.
+          </p>
+          <a
+            class="btn"
+            href="https://momence.com/All-Purpose-Yoga/membership/Mantra-Magic%3A-Sound-Healing-and-Nada-Yoga/826800"
+            target="_blank"
+            rel="noopener"
+          >
+            Register Here
+          </a>
+        </div>
+      </div>
+
+      <div class="list-section">
+        <h3>Topics &amp; Practices We’ll Explore</h3>
+        <ul class="two-col-list">
+          {topics.map((t) => <li>{t}</li>)}
+        </ul>
+      </div>
+
+      <div class="list-section">
+        <h3>Experiential Practices</h3>
+        <ul class="two-col-list">
+          {practices.map((p) => <li>{p}</li>)}
+        </ul>
+      </div>
+
+      <img
+        class="wide-img"
+        src="/wp-content/uploads/2026/06/Image-6-19-26-at-3.57-PM-compressed.jpg"
+        alt="Sound healing instruments"
+        loading="lazy"
+      />
+
+      <div class="list-section about-melissa">
+        <h3>About Melissa</h3>
+        <p>
+          Melissa Carey weaves yoga, mantra, music, and meditation into a soulful practice of
+          self-love and acceptance — one that embraces both challenge and joy as pathways to
+          wholeness. Rather than striving to “fix” ourselves, she invites students to awaken the
+          body’s innate wisdom to heal. Her classes cultivate awareness, resilience, strength, and
+          flexibility — not just in the body, but in the mind and heart. Through her teaching,
+          Melissa guides each person back to their inner depth, trusting that true wisdom arises
+          from within. Melissa holds a double major B.A. in Yoga and Music, with a minor in
+          Religious Studies and Psychology from Naropa University. She is certified in numerous
+          massage and bodywork modalities, including Thai Massage and Ayurvedic treatments, and has
+          been immersed in the study of yoga, Buddhism, and other mystical traditions for over 25
+          years. With ongoing training in trauma-informed yoga, yin and restorative practices,
+          partner yoga, and sound healing, Melissa continues to evolve her craft — offering
+          practices that meet each individual where they are on their journey home to themselves.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .heading-block {
+    margin-bottom: 3rem;
+  }
+
+  .subline {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+
+  .two-col {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  @media (min-width: 900px) {
+    .two-col {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .two-col img {
+    border-radius: 12px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .list-section {
+    margin-bottom: 3rem;
+  }
+
+  .two-col-list {
+    padding-left: 1.25rem;
+    columns: 1;
+  }
+
+  @media (min-width: 768px) {
+    .two-col-list {
+      columns: 2;
+      column-gap: 3rem;
+    }
+  }
+
+  .two-col-list li {
+    margin-bottom: 0.5rem;
+    break-inside: avoid;
+  }
+
+  .wide-img {
+    border-radius: 12px;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+
+  .about-melissa {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+
+  .about-melissa p:last-child {
+    margin-bottom: 0;
+  }
+</style>
