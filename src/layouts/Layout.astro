@@ -1,14 +1,24 @@
 ---
+import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { resolveImage } from '../utils/images';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description?: string;
+  heroImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, heroImage } = Astro.props;
+
+const heroMobile = heroImage
+  ? await getImage({ src: resolveImage(heroImage), width: 768, format: 'webp' })
+  : null;
+const heroDesktop = heroImage
+  ? await getImage({ src: resolveImage(heroImage), width: 1920, format: 'webp' })
+  : null;
 ---
 
 <!doctype html>
@@ -18,13 +28,10 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
-    <link rel="icon" type="image/png" href="/wp-content/uploads/2025/08/cropped-AllPurposeYogaRound-compressed.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Work+Sans:wght@400;600;700&family=Young+Serif&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    {heroMobile && <link rel="preload" as="image" href={heroMobile.src} media="(max-width: 767px)" />}
+    {heroDesktop && <link rel="preload" as="image" href={heroDesktop.src} media="(min-width: 768px)" />}
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>

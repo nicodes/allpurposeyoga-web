@@ -1,0 +1,122 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "All Purpose Yoga home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "All Purpose Yoga" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link "Boulder, CO" [ref=e9] [cursor=pointer]:
+            - /url: /connect/
+            - img [ref=e10]
+            - text: Boulder, CO
+          - link "203-520-5145" [ref=e12] [cursor=pointer]:
+            - /url: tel:2035205145
+            - img [ref=e13]
+            - text: 203-520-5145
+        - checkbox "Toggle navigation"
+        - navigation "Main" [ref=e15]:
+          - list [ref=e16]:
+            - listitem [ref=e17]:
+              - link "Schedule" [ref=e18] [cursor=pointer]:
+                - /url: /schedule/
+            - listitem [ref=e19]:
+              - link "Classes" [ref=e20] [cursor=pointer]:
+                - /url: /classes/
+            - listitem [ref=e21]:
+              - link "Events" [ref=e22] [cursor=pointer]:
+                - /url: /events/
+            - listitem [ref=e23]:
+              - group [ref=e24]:
+                - generic "Trainings ▾" [ref=e25] [cursor=pointer]
+            - listitem [ref=e26]:
+              - link "Pricing" [ref=e27] [cursor=pointer]:
+                - /url: /pricing/
+            - listitem [ref=e28]:
+              - link "About Us" [ref=e29] [cursor=pointer]:
+                - /url: /about/
+            - listitem [ref=e30]:
+              - link "Connect" [ref=e31] [cursor=pointer]:
+                - /url: /connect/
+  - main [ref=e32]:
+    - generic [ref=e34]:
+      - paragraph [ref=e35]: connect with
+      - heading "your purpose your being" [level=1] [ref=e36]:
+        - text: your purpose
+        - text: your being
+      - link "Carpe Diem – Book Today" [ref=e37] [cursor=pointer]:
+        - /url: /schedule/
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - paragraph [ref=e41]: just a little bit
+        - heading "About Us" [level=2] [ref=e42]
+        - paragraph [ref=e43]: We are a small locally operated and female owned yoga studio. Our mission at All Purpose Yoga is to enhance the world we live in, from commitment to personal practice to the ways we are then able to give back to society. At All Purpose Yoga we strive to encourage agency in our own bodies and minds to navigate with a sense of responsibility and ownership to the power we possess to make an impact with our time here.
+        - paragraph [ref=e44]: Our vision is to make regular strides toward self-discovery alongside the community. Embracing individuality, authenticity and diverse teaching modalities, All Purpose Yoga serves as a platform for life long learners and social change agents.
+        - link "View Our Class Schedule" [ref=e45] [cursor=pointer]:
+          - /url: /schedule/
+      - img "All Purpose Yoga studio interior" [ref=e46]
+    - generic [ref=e48]:
+      - paragraph [ref=e49]:
+        - text: Lokah Samastah Sukhino Bhavantu
+        - text: May all beings everywhere be happy and free
+      - paragraph [ref=e50]: What others say about us
+      - heading "Testimonials" [level=2] [ref=e51]
+      - generic [ref=e52]:
+        - figure "— Daria R." [ref=e53]:
+          - img "Gayatri" [ref=e54]
+          - blockquote [ref=e55]: “All Purpose Yoga Studio in Boulder is a gem. Greatly enjoyed a class with Gayatri. She is a gifted teacher with much knowledge and expertise of both the postures and the healing energy of yoga! Thank you!”
+          - generic [ref=e56]: — Daria R.
+        - figure "— Brooke A." [ref=e57]:
+          - img "Studio space" [ref=e58]
+          - blockquote [ref=e59]: “So grateful that All Purpose exists! Such a special studio that is heart-led and so inviting. The space is full of beautiful light, and adorned with plants and alter items. I felt right at home when I arrived and loved my vinyasa class with Jade. Highly recommend checking out Boulder’s newest yoga studio!”
+          - generic [ref=e60]: — Brooke A.
+        - figure "— Kaitlyn R." [ref=e61]:
+          - img "Class in session" [ref=e62]
+          - blockquote [ref=e63]: “Carlie invited me in to FINALLY have my first flow with you. I’m so happy to see what’s been created here and the sweet and deeply nurturing ambiance of the space and community. I can’t wait to be back again!”
+          - generic [ref=e64]: — Kaitlyn R.
+    - generic [ref=e66]:
+      - paragraph [ref=e67]: book a
+      - heading "class or workshop" [level=2] [ref=e68]
+      - link "Browse Classes" [ref=e69] [cursor=pointer]:
+        - /url: /classes/
+  - contentinfo [ref=e70]:
+    - generic [ref=e71]:
+      - link "All Purpose Yoga home" [ref=e72] [cursor=pointer]:
+        - /url: /
+        - img "All Purpose Yoga" [ref=e73]
+      - generic [ref=e74]:
+        - strong [ref=e75]: Boulder
+        - paragraph [ref=e76]:
+          - text: 2825 Wilderness Place
+          - text: Boulder, CO 80301
+        - link "info@allpurposeyoga.com" [ref=e77] [cursor=pointer]:
+          - /url: mailto:info@allpurposeyoga.com
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - link "Facebook" [ref=e80] [cursor=pointer]:
+            - /url: https://www.facebook.com/ThemeFusion-101565403356430/
+            - img [ref=e81]
+          - link "X" [ref=e83] [cursor=pointer]:
+            - /url: https://twitter.com/theme_fusion
+            - img [ref=e84]
+          - link "Instagram" [ref=e86] [cursor=pointer]:
+            - /url: https://www.instagram.com/allpurposeyoga/
+            - img [ref=e87]
+        - paragraph [ref=e89]: We acknowledge that we live and are practicing on Arapaho, Ute and Cheyenne national territory and that Colorado’s Front Range is home to many Native peoples.
+        - paragraph [ref=e90]:
+          - text: Nature photos featured on this website are courtesy of Travis Enzensperger. For more of his creativity and environmental perspectives visit
+          - link "travisenzensperger.com" [ref=e91] [cursor=pointer]:
+            - /url: https://travisenzensperger.com/
+    - generic [ref=e92]:
+      - paragraph [ref=e93]:
+        - link "Stripe Privacy Policy" [ref=e94] [cursor=pointer]:
+          - /url: https://stripe.com/privacy
+        - text: "|"
+        - link "Momence Privacy Policy" [ref=e95] [cursor=pointer]:
+          - /url: https://momence.com/privacy-policy/documents/Momence-Privacy-Policy.pdf
+      - paragraph [ref=e96]:
+        - text: "© Copyright 2026 All Purpose Yoga | All rights reserved | Built by:"
+        - link "Overhaulics" [ref=e97] [cursor=pointer]:
+          - /url: https://overhaulics.com

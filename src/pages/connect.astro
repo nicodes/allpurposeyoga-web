@@ -1,9 +1,14 @@
 ---
 import Base from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
 import PageHero from '../components/PageHero.astro';
 ---
 
-<Base title="Connect - All Purpose Yoga">
+<Base
+  title="Connect - All Purpose Yoga"
+  description="Connect with All Purpose Yoga at 2825 Wilderness Place, Boulder, CO 80301 or email info@allpurposeyoga.com."
+  heroImage="/wp-content/uploads/2026/07/Gemini_Generated_Image_aq7d9uaq7d9uaq7d-compressed.png"
+>
   <PageHero
     title="Connect"
     image="/wp-content/uploads/2026/07/Gemini_Generated_Image_aq7d9uaq7d9uaq7d-compressed.png"
@@ -11,10 +16,12 @@ import PageHero from '../components/PageHero.astro';
 
   <section class="section">
     <div class="container connect-grid">
-      <img
+      <Img
         src="/wp-content/uploads/2025/12/IMG_0022.jpeg"
         alt="All Purpose Yoga studio"
-        loading="lazy"
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 900px) 45vw, calc(100vw - 2.5rem)"
+        class="connect-grid-img"
       />
       <div>
         <h2 class="subheading">Address</h2>
@@ -67,11 +74,6 @@ import PageHero from '../components/PageHero.astro';
     .connect-grid {
       grid-template-columns: 1fr 1fr;
     }
-  }
-
-  .connect-grid img {
-    border-radius: 12px;
-    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
   }
 
   .testimonials-section {

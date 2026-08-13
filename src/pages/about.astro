@@ -1,10 +1,15 @@
 ---
 import Base from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
 import PageHero from '../components/PageHero.astro';
 import { teachers } from '../data/teachers';
 ---
 
-<Base title="About Us - All Purpose Yoga">
+<Base
+  title="About Us - All Purpose Yoga"
+  description="All Purpose Yoga is a small locally operated and female owned yoga studio in Boulder, CO. Get to know our inspired teachers."
+  heroImage="/wp-content/uploads/2026/07/Gemini_Generated_Image_t90fpjt90fpjt90f-compressed.png"
+>
   <PageHero
     title="About Us"
     image="/wp-content/uploads/2026/07/Gemini_Generated_Image_t90fpjt90fpjt90f-compressed.png"
@@ -27,10 +32,12 @@ import { teachers } from '../data/teachers';
           Action) and Bhakti Yoga (Devotion inspired by Divine Love).
         </p>
       </div>
-      <img
+      <Img
         src="/wp-content/uploads/2025/12/IMG_0068.jpeg"
         alt="All Purpose Yoga community"
-        loading="lazy"
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 900px) 45vw, calc(100vw - 2.5rem)"
+        class="intro-grid-img"
       />
     </div>
   </section>
@@ -43,13 +50,13 @@ import { teachers } from '../data/teachers';
       <div class="teacher-grid">
         {teachers.map((t) => (
           <article class="card teacher-card">
-            <img src={t.image} alt={t.name} loading="lazy" />
+            <Img src={t.image} alt={t.name} widths={[400, 640]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2.5rem)" class="teacher-card-img" />
             <div class="teacher-body">
               <h3>{t.name}</h3>
               <details>
                 <summary>{t.bioLabel}</summary>
                 <div class="bio">
-                  <img src={t.portrait} alt={t.modalName ?? t.name} loading="lazy" />
+                  <Img src={t.portrait} alt={t.modalName ?? t.name} widths={[140, 280]} sizes="140px" class="bio-img" />
                   <h4>{t.modalName ?? t.name}</h4>
                   {t.bio.split('\n\n').map((p) => <p>{p}</p>)}
                 </div>
@@ -83,11 +90,6 @@ import { teachers } from '../data/teachers';
     }
   }
 
-  .intro-grid img {
-    border-radius: 12px;
-    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
-  }
-
   .teachers-section {
     background: var(--beige);
   }
@@ -108,12 +110,6 @@ import { teachers } from '../data/teachers';
     .teacher-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  .teacher-card > img {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    width: 100%;
   }
 
   .teacher-body {
@@ -150,12 +146,6 @@ import { teachers } from '../data/teachers';
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(51, 51, 51, 0.1);
-  }
-
-  .bio img {
-    width: 140px;
-    border-radius: 12px;
-    margin-bottom: 1rem;
   }
 
   .bio h4 {

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
 import PageHero from '../components/PageHero.astro';
 
 const classes = [
@@ -77,7 +78,11 @@ const etiquette = [
 ];
 ---
 
-<Base title="Classes - All Purpose Yoga">
+<Base
+  title="Classes - All Purpose Yoga"
+  description="Vinyasa, Gentle, Yin, Kundalini, Vin Yin, Restorative Yin & Sound Healing, and Sound Healing classes at All Purpose Yoga in Boulder, CO."
+  heroImage="/wp-content/uploads/2026/07/Gemini_Generated_Image_45fp6p45fp6p45fp-compressed.png"
+>
   <PageHero
     title="Classes"
     image="/wp-content/uploads/2026/07/Gemini_Generated_Image_45fp6p45fp6p45fp-compressed.png"
@@ -91,7 +96,7 @@ const etiquette = [
       <div class="class-grid">
         {classes.map((c) => (
           <article class="card class-card">
-            <img src={c.image} alt={c.alt} loading="lazy" />
+            <Img src={c.image} alt={c.alt} widths={[480, 768]} sizes="(min-width: 1100px) 33vw, (min-width: 700px) 50vw, calc(100vw - 2.5rem)" class="class-card-img" />
             <div class="class-body">
               <h3>{c.name}</h3>
               {c.paragraphs.map((p) => <p>{p}</p>)}
@@ -129,12 +134,6 @@ const etiquette = [
     .class-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  .class-card img {
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    width: 100%;
   }
 
   .class-body {

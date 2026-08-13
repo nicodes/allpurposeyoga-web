@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import { resolveImage } from '../utils/images';
+
+interface Props {
+  src: string;
+  alt: string;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  widths = [480, 768, 1024],
+  sizes = '100vw',
+  loading = 'lazy',
+  class: className,
+} = Astro.props;
+---
+
+<Image
+  src={resolveImage(src)}
+  alt={alt}
+  widths={widths}
+  sizes={sizes}
+  loading={loading}
+  format="webp"
+  class={className}
+/>

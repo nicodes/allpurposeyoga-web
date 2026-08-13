@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
 import PageHero from '../components/PageHero.astro';
 
 const topics = [
@@ -35,7 +36,11 @@ const practices = [
 ];
 ---
 
-<Base title="Mantra Magic - All Purpose Yoga">
+<Base
+  title="Mantra Magic - All Purpose Yoga"
+  description="Mantra Magic: Sound Healing and Nada Yoga training with Melissa Carey at All Purpose Yoga in Boulder, CO."
+  heroImage="/wp-content/uploads/2025/08/Classes-compressed.png"
+>
   <PageHero title="Mantra Magic" image="/wp-content/uploads/2025/08/Classes-compressed.png" />
 
   <section class="section">
@@ -46,10 +51,12 @@ const practices = [
       </div>
 
       <div class="two-col">
-        <img
+        <Img
           src="/wp-content/uploads/2025/11/Image-9-25-25-at-1.50-PM.jpeg"
           alt="Mantra Magic training"
-          loading="lazy"
+          widths={[480, 768, 1024]}
+          sizes="(min-width: 900px) 45vw, calc(100vw - 2.5rem)"
+          class="two-col-img"
         />
         <div>
           <h3>About Yin Yoga Training</h3>
@@ -85,11 +92,12 @@ const practices = [
         </ul>
       </div>
 
-      <img
+      <Img
         class="wide-img"
         src="/wp-content/uploads/2026/06/Image-6-19-26-at-3.57-PM-compressed.jpg"
         alt="Sound healing instruments"
-        loading="lazy"
+        widths={[768, 1024, 1600]}
+        sizes="(min-width: 1180px) 1140px, calc(100vw - 2.5rem)"
       />
 
       <div class="list-section about-melissa">
@@ -137,11 +145,6 @@ const practices = [
     }
   }
 
-  .two-col img {
-    border-radius: 12px;
-    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
-  }
-
   .list-section {
     margin-bottom: 3rem;
   }
@@ -161,12 +164,6 @@ const practices = [
   .two-col-list li {
     margin-bottom: 0.5rem;
     break-inside: avoid;
-  }
-
-  .wide-img {
-    border-radius: 12px;
-    margin-bottom: 3rem;
-    width: 100%;
   }
 
   .about-melissa {

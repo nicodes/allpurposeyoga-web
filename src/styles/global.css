@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/work-sans/400.css";
+@import "@fontsource/work-sans/600.css";
+@import "@fontsource/work-sans/700.css";
+@import "@fontsource/young-serif/400.css";
 
 :root {
   --white: #ffffff;
@@ -48,6 +53,10 @@ a {
 
 a:hover {
   color: var(--gold);
+}
+
+p a {
+  text-decoration: underline;
 }
 
 h1,
@@ -196,4 +205,75 @@ p {
 .skip-link:focus {
   left: 0;
   color: var(--white);
+}
+
+/* Images rendered via the Img component (astro:assets) — scoped styles can't
+   reach child-component elements, so these are global classes passed via class prop */
+.logo-img {
+  width: 72px;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .logo-img {
+    width: 100px;
+  }
+}
+
+.footer-logo-img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+.about-grid-img,
+.intro-grid-img,
+.connect-grid-img,
+.two-col-img {
+  border-radius: 12px;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
+  height: auto;
+}
+
+.testimonial-img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.class-card-img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.pricing-gallery-img {
+  border-radius: 12px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.teacher-card-img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.bio-img {
+  width: 140px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.wide-img {
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  width: 100%;
+  height: auto;
 }
