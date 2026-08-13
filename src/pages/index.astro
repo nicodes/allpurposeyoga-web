@@ -1,9 +1,28 @@
 ---
+import { getImage } from 'astro:assets';
 import Base from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
+import { resolveImage } from '../utils/images';
+
+const HERO = '/wp-content/uploads/2025/12/IMG_0033.jpeg';
+const heroMobile = await getImage({ src: resolveImage(HERO), width: 768, format: 'webp' });
+const heroDesktop = await getImage({ src: resolveImage(HERO), width: 1920, format: 'webp' });
+const tetons = await getImage({
+  src: resolveImage('/wp-content/uploads/2025/08/Tetons-compressed.png'),
+  width: 1600,
+  format: 'webp',
+});
 ---
 
-<Base title="Home - All Purpose Yoga">
-  <section class="home-hero">
+<Base
+  title="Home - All Purpose Yoga"
+  description="All Purpose Yoga is a small locally operated and female owned yoga studio in Boulder, CO. View our class schedule, events, trainings, and pricing."
+  heroImage={HERO}
+>
+  <section
+    class="home-hero"
+    style={`--hero-mobile: url('${heroMobile.src}'); --hero-desktop: url('${heroDesktop.src}')`}
+  >
     <div class="home-hero-inner container">
       <p class="hero-eyebrow">connect with</p>
       <h1>your purpose<br />your being</h1>
@@ -30,15 +49,17 @@ import Base from '../layouts/Layout.astro';
         </p>
         <a class="btn" href="/schedule/">View Our Class Schedule</a>
       </div>
-      <img
+      <Img
         src="/wp-content/uploads/2025/12/IMG_0050.jpeg"
         alt="All Purpose Yoga studio interior"
-        loading="lazy"
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 900px) 45vw, calc(100vw - 2.5rem)"
+        class="about-grid-img"
       />
     </div>
   </section>
 
-  <section class="section testimonials-section">
+  <section class="section testimonials-section" style={`--tetons: url('${tetons.src}')`}>
     <div class="container">
       <p class="center mantra">
         Lokah Samastah Sukhino Bhavantu<br />
@@ -48,7 +69,7 @@ import Base from '../layouts/Layout.astro';
       <h2 class="center">Testimonials</h2>
       <div class="testimonial-grid">
         <figure class="card">
-          <img src="/wp-content/uploads/2025/08/Gayatri-1-compressed.jpg" alt="Gayatri" loading="lazy" />
+          <Img src="/wp-content/uploads/2025/08/Gayatri-1-compressed.jpg" alt="Gayatri" widths={[480, 768]} sizes="(min-width: 900px) 33vw, calc(100vw - 2.5rem)" class="testimonial-img" />
           <blockquote>
             “All Purpose Yoga Studio in Boulder is a gem. Greatly enjoyed a class with Gayatri. She
             is a gifted teacher with much knowledge and expertise of both the postures and the
@@ -57,7 +78,7 @@ import Base from '../layouts/Layout.astro';
           <figcaption>— Daria R.</figcaption>
         </figure>
         <figure class="card">
-          <img src="/wp-content/uploads/2025/10/IMG_4477-compressed.jpg" alt="Studio space" loading="lazy" />
+          <Img src="/wp-content/uploads/2025/10/IMG_4477-compressed.jpg" alt="Studio space" widths={[480, 768]} sizes="(min-width: 900px) 33vw, calc(100vw - 2.5rem)" class="testimonial-img" />
           <blockquote>
             “So grateful that All Purpose exists! Such a special studio that is heart-led and so
             inviting. The space is full of beautiful light, and adorned with plants and alter items.
@@ -67,10 +88,12 @@ import Base from '../layouts/Layout.astro';
           <figcaption>— Brooke A.</figcaption>
         </figure>
         <figure class="card">
-          <img
+          <Img
             src="/wp-content/uploads/2026/05/Image-5-28-26-at-10.17-PM.jpeg"
             alt="Class in session"
-            loading="lazy"
+            widths={[480, 768]}
+            sizes="(min-width: 900px) 33vw, calc(100vw - 2.5rem)"
+            class="testimonial-img"
           />
           <blockquote>
             “Carlie invited me in to FINALLY have my first flow with you. I’m so happy to see what’s
@@ -100,7 +123,15 @@ import Base from '../layouts/Layout.astro';
     min-height: 88vh;
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%),
-      url('/wp-content/uploads/2025/12/IMG_0033.jpeg') center / cover no-repeat;
+      var(--hero-mobile) center / cover no-repeat;
+  }
+
+  @media (min-width: 768px) {
+    .home-hero {
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%),
+        var(--hero-desktop) center / cover no-repeat;
+    }
   }
 
   .home-hero-inner {
@@ -152,15 +183,10 @@ import Base from '../layouts/Layout.astro';
     }
   }
 
-  .about-grid img {
-    border-radius: 12px;
-    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
-  }
-
   .testimonials-section {
     background:
       linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-      url('/wp-content/uploads/2025/08/Tetons-compressed.png') center / cover no-repeat var(--beige);
+      var(--tetons) center / cover no-repeat var(--beige);
   }
 
   .mantra {
@@ -191,12 +217,6 @@ import Base from '../layouts/Layout.astro';
     margin: 0;
     display: flex;
     flex-direction: column;
-  }
-
-  .testimonial-grid img {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    width: 100%;
   }
 
   .testimonial-grid blockquote {

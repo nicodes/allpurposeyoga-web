@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Layout.astro';
+import Img from '../components/Img.astro';
 import PageHero from '../components/PageHero.astro';
 
 const plans = [
@@ -61,7 +62,11 @@ const details = [
 ];
 ---
 
-<Base title="Pricing - All Purpose Yoga">
+<Base
+  title="Pricing - All Purpose Yoga"
+  description="Membership options at All Purpose Yoga in Boulder, CO: new student specials, drop-in classes, unlimited memberships, and class cards."
+  heroImage="/wp-content/uploads/2026/07/Gemini_Generated_Image_wytgktwytgktwytg-compressed.png"
+>
   <PageHero
     title="Pricing"
     image="/wp-content/uploads/2026/07/Gemini_Generated_Image_wytgktwytgktwytg-compressed.png"
@@ -89,9 +94,9 @@ const details = [
       </div>
 
       <div class="pricing-gallery">
-        <img src="/wp-content/uploads/2025/12/IMG_0067.jpeg" alt="Studio practice" loading="lazy" />
-        <img src="/wp-content/uploads/2025/12/IMG_0019.jpeg" alt="Studio space" loading="lazy" />
-        <img src="/wp-content/uploads/2025/10/IMG_0014-compressed.jpg" alt="Yoga class" loading="lazy" />
+        <Img src="/wp-content/uploads/2025/12/IMG_0067.jpeg" alt="Studio practice" widths={[480, 768]} sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)" class="pricing-gallery-img" />
+        <Img src="/wp-content/uploads/2025/12/IMG_0019.jpeg" alt="Studio space" widths={[480, 768]} sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)" class="pricing-gallery-img" />
+        <Img src="/wp-content/uploads/2025/10/IMG_0014-compressed.jpg" alt="Yoga class" widths={[480, 768]} sizes="(min-width: 768px) 33vw, calc(100vw - 2.5rem)" class="pricing-gallery-img" />
       </div>
 
       <ul class="details-list">
@@ -167,13 +172,6 @@ const details = [
     .pricing-gallery {
       grid-template-columns: repeat(3, 1fr);
     }
-  }
-
-  .pricing-gallery img {
-    border-radius: 12px;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    width: 100%;
   }
 
   .details-list {
