@@ -2,7 +2,7 @@
 interface NavItem {
   label: string;
   href?: string;
-  children?: { label: string; href: string; external?: boolean }[];
+  children?: { label: string; href: string }[];
 }
 
 const nav: NavItem[] = [
@@ -16,7 +16,6 @@ const nav: NavItem[] = [
       {
         label: 'Bridging The Gap To Teaching',
         href: 'https://momence.com/All-Purpose-Yoga/Bridging-The-Gap-To-Teaching/128777664?skipPreview=true',
-        external: true,
       },
     ],
   },
@@ -64,7 +63,7 @@ const path = Astro.url.pathname;
                   <ul class="dropdown">
                     {item.children.map((child) => (
                       <li>
-                        <a href={child.href} {...(child.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                        <a href={child.href}>
                           {child.label}
                         </a>
                       </li>
