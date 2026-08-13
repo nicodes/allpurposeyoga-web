@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base title="Schedule - All Purpose Yoga">
+  <PageHero title="Schedule" image="/wp-content/uploads/2026/07/Image-7-13-26-at-1.40-PM-compressed.jpg" />
+  <section class="section schedule-section">
+    <div class="container">
+      <div class="card schedule-card">
+        <script
+          async
+          type="module"
+          host_id="87939"
+          teacher_ids="[]"
+          location_ids="[]"
+          tag_ids="[]"
+          default_filter="show-all"
+          locale="en"
+          src="https://momence.com/plugin/host-schedule/host-schedule.js"
+        ></script>
+        <noscript>
+          <p class="center" style="padding: 2rem;">
+            View our live schedule on
+            <a href="https://momence.com/All-Purpose-Yoga" target="_blank" rel="noopener">Momence</a>.
+          </p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .schedule-section {
+    background: linear-gradient(180deg, rgba(234, 225, 214, 0.61) 0%, rgba(234, 225, 214, 0.33) 100%);
+  }
+
+  .schedule-card {
+    border-radius: 12px;
+    padding: 1rem;
+    --momenceColorBackground: #fbfbfb;
+    --momenceColorPrimary: 160, 44, 73;
+    --momenceColorBlack: 3, 1, 13;
+  }
+</style>

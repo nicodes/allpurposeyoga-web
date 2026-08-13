@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base title="Connect - All Purpose Yoga">
+  <PageHero
+    title="Connect"
+    image="/wp-content/uploads/2026/07/Gemini_Generated_Image_aq7d9uaq7d9uaq7d-compressed.png"
+  />
+
+  <section class="section">
+    <div class="container connect-grid">
+      <img
+        src="/wp-content/uploads/2025/12/IMG_0022.jpeg"
+        alt="All Purpose Yoga studio"
+        loading="lazy"
+      />
+      <div>
+        <h3>Address</h3>
+        <p>
+          2825 Wilderness Place<br />
+          Boulder, CO 80301
+        </p>
+        <h3>Email</h3>
+        <p><a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a></p>
+        <p>Interested in joining our Trade Team? Drop us a line to learn more!</p>
+        <p><strong>Positions Available:</strong> Light Studio Cleaning, Instagram/Marketing</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section testimonials-section">
+    <div class="container">
+      <h3 class="center">Testimonials</h3>
+      <div class="testimonial-grid">
+        <figure class="card">
+          <blockquote>
+            “This is such an incredible studio in Boulder. I had the pleasure of attending an early
+            evening flow class and an afternoon special offering which was a yin yoga and essential
+            oil. Both classes were top tier. The sense of community is just so comforting and I felt
+            so welcomed as a new yogi. This is just what Boulder needed!!!”
+          </blockquote>
+          <figcaption>— M C</figcaption>
+        </figure>
+        <figure class="card">
+          <blockquote>
+            “Such a calm, welcoming, and beautiful space! I’ve been to a couple classes here and
+            felt welcomed in by the instructor and other participants. Chill, fun and relaxing folks
+            here :) check it out!”
+          </blockquote>
+          <figcaption>— Allison S</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .connect-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .connect-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .connect-grid img {
+    border-radius: 12px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .testimonials-section {
+    background: var(--beige);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 800px) {
+    .testimonial-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .testimonial-grid figure {
+    margin: 0;
+    padding: 1.5rem;
+  }
+
+  .testimonial-grid blockquote {
+    margin: 0 0 1rem;
+    font-style: italic;
+  }
+
+  .testimonial-grid figcaption {
+    font-weight: 600;
+    color: var(--maroon);
+  }
+</style>

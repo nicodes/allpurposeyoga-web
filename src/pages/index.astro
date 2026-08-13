@@ -1,0 +1,214 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Home - All Purpose Yoga">
+  <section class="home-hero">
+    <div class="home-hero-inner container">
+      <p class="hero-eyebrow">connect with</p>
+      <h1>your purpose</h1>
+      <a class="btn" href="/schedule/">Carpe Diem – Book Today</a>
+    </div>
+  </section>
+
+  <section class="section about-section">
+    <div class="container about-grid">
+      <div>
+        <p class="kicker">just a little bit</p>
+        <h2>About Us</h2>
+        <p>
+          We are a small locally operated and female owned yoga studio. Our mission at All Purpose
+          Yoga is to enhance the world we live in, from commitment to personal practice to the ways
+          we are then able to give back to society. At All Purpose Yoga we strive to encourage
+          agency in our own bodies and minds to navigate with a sense of responsibility and
+          ownership to the power we possess to make an impact with our time here.
+        </p>
+        <p>
+          Our vision is to make regular strides toward self-discovery alongside the community.
+          Embracing individuality, authenticity and diverse teaching modalities, All Purpose Yoga
+          serves as a platform for life long learners and social change agents.
+        </p>
+        <a class="btn" href="/schedule/">View Our Class Schedule</a>
+      </div>
+      <img
+        src="/wp-content/uploads/2025/12/IMG_0050.jpeg"
+        alt="All Purpose Yoga studio interior"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+  <section class="section testimonials-section">
+    <div class="container">
+      <h3 class="center mantra">
+        Lokah Samastah Sukhino Bhavantu<br />
+        <span>May all beings everywhere be happy and free</span>
+      </h3>
+      <p class="kicker center">What others say about us</p>
+      <h2 class="center">Testimonials</h2>
+      <div class="testimonial-grid">
+        <figure class="card">
+          <img src="/wp-content/uploads/2025/08/Gayatri-1-compressed.jpg" alt="Gayatri" loading="lazy" />
+          <blockquote>
+            “All Purpose Yoga Studio in Boulder is a gem. Greatly enjoyed a class with Gayatri. She
+            is a gifted teacher with much knowledge and expertise of both the postures and the
+            healing energy of yoga! Thank you!”
+          </blockquote>
+          <figcaption>— Daria R.</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="/wp-content/uploads/2025/10/IMG_4477-compressed.jpg" alt="Studio space" loading="lazy" />
+          <blockquote>
+            “So grateful that All Purpose exists! Such a special studio that is heart-led and so
+            inviting. The space is full of beautiful light, and adorned with plants and alter items.
+            I felt right at home when I arrived and loved my vinyasa class with Jade. Highly
+            recommend checking out Boulder’s newest yoga studio!”
+          </blockquote>
+          <figcaption>— Brooke A.</figcaption>
+        </figure>
+        <figure class="card">
+          <img
+            src="/wp-content/uploads/2026/05/Image-5-28-26-at-10.17-PM.jpeg"
+            alt="Class in session"
+            loading="lazy"
+          />
+          <blockquote>
+            “Carlie invited me in to FINALLY have my first flow with you. I’m so happy to see what’s
+            been created here and the sweet and deeply nurturing ambiance of the space and
+            community. I can’t wait to be back again!”
+          </blockquote>
+          <figcaption>— Kaitlyn R.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band center">
+    <div class="container">
+      <p class="kicker">book a</p>
+      <h2>class or workshop</h2>
+      <a class="btn" href="/classes/">Browse Classes</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .home-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 88vh;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%),
+      url('/wp-content/uploads/2025/12/IMG_0033.jpeg') center / cover no-repeat;
+  }
+
+  .home-hero-inner {
+    width: 100%;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .home-hero-inner {
+      text-align: left;
+    }
+
+    .home-hero-inner .btn {
+      float: right;
+    }
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 6.25rem);
+    line-height: 1.1;
+    color: var(--gold);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
+    margin: 0;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(3rem, 10vw, 6.25rem);
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.64);
+    margin: 0 0 1.5rem;
+  }
+
+  .about-section {
+    background: linear-gradient(0deg, rgba(245, 234, 202, 0.53) 0%, rgba(245, 234, 202, 0.25) 100%);
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .about-grid img {
+    border-radius: 12px;
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .testimonials-section {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+      url('/wp-content/uploads/2025/08/Tetons-compressed.png') center / cover no-repeat var(--beige);
+  }
+
+  .mantra {
+    margin-bottom: 3rem;
+  }
+
+  .mantra span {
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--text);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .testimonial-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonial-grid figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-grid img {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .testimonial-grid blockquote {
+    margin: 0;
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-grid figcaption {
+    padding: 0 1.5rem 1.5rem;
+    font-weight: 600;
+    color: var(--maroon);
+  }
+
+  .cta-band {
+    background: var(--cream);
+  }
+</style>

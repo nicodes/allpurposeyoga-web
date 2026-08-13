@@ -1,0 +1,273 @@
+---
+const nav = [
+  { label: 'Schedule', href: '/schedule/' },
+  { label: 'Classes', href: '/classes/' },
+  { label: 'Events', href: '/events/' },
+  {
+    label: 'Trainings',
+    href: '#',
+    children: [
+      { label: 'Mantra Magic', href: '/nada-yoga/' },
+      {
+        label: 'Bridging The Gap To Teaching',
+        href: 'https://momence.com/All-Purpose-Yoga/Bridging-The-Gap-To-Teaching/128777664?skipPreview=true',
+        external: true,
+      },
+    ],
+  },
+  { label: 'Pricing', href: '/pricing/' },
+  { label: 'About Us', href: '/about/' },
+  { label: 'Connect', href: '/connect/' },
+];
+
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo" aria-label="All Purpose Yoga home">
+      <img src="/wp-content/uploads/2025/08/AllPurposeYogaRound-compressed.png" alt="All Purpose Yoga" width="100" height="101" />
+    </a>
+
+    <div class="header-right">
+      <div class="utility">
+        <a href="/connect/">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          Boulder, CO
+        </a>
+        <a href="tel:2035205145">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/></svg>
+          203-520-5145
+        </a>
+      </div>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
+      <label for="nav-toggle" class="hamburger">
+        <span></span><span></span><span></span>
+        <em>Menu</em>
+      </label>
+
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          {nav.map((item) => (
+            <li class={item.children ? 'has-dropdown' : ''}>
+              {item.children ? (
+                <details>
+                  <summary class:list={[{ active: item.children.some((c) => c.href === path) }]}>
+                    {item.label}
+                  </summary>
+                  <ul class="dropdown">
+                    {item.children.map((child) => (
+                      <li>
+                        <a href={child.href} {...(child.external ? { target: '_blank', rel: 'noopener' } : {})}>
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a href={item.href} class:list={[{ active: path === item.href }]}>{item.label}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+  }
+
+  .header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo img {
+    width: 72px;
+    height: auto;
+  }
+
+  @media (min-width: 1024px) {
+    .logo img {
+      width: 100px;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+
+  .utility {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .utility a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text);
+  }
+
+  .utility a:hover {
+    color: var(--maroon);
+  }
+
+  .nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+  }
+
+  .hamburger em {
+    font-style: normal;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--maroon);
+  }
+
+  .nav-toggle:checked ~ .main-nav {
+    display: block;
+  }
+
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .main-nav a,
+  .main-nav summary {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .main-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .main-nav summary::after {
+    content: "▾";
+    float: right;
+  }
+
+  .main-nav a:hover,
+  .main-nav a.active,
+  .main-nav summary:hover,
+  .main-nav summary.active {
+    color: var(--gold);
+  }
+
+  .dropdown {
+    padding: 0 !important;
+  }
+
+  .dropdown a {
+    padding-left: 2.25rem;
+    font-size: 0.8125rem;
+  }
+
+  @media (min-width: 1024px) {
+    .hamburger {
+      display: none;
+    }
+
+    .main-nav {
+      display: block;
+      position: static;
+      background: transparent;
+    }
+
+    .main-nav > ul {
+      display: flex;
+      gap: 2.8125rem;
+      padding: 0;
+    }
+
+    .main-nav a,
+    .main-nav summary {
+      padding: 0.5rem 0;
+      color: var(--text);
+      font-size: 0.875rem;
+    }
+
+    .has-dropdown {
+      position: relative;
+    }
+
+    .has-dropdown .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      border-radius: 0 0 12px 12px;
+      display: none;
+    }
+
+    .has-dropdown:hover .dropdown,
+    .has-dropdown details[open] .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      padding: 0.625rem 1.25rem;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .dropdown a:hover {
+      color: var(--maroon);
+    }
+  }
+</style>

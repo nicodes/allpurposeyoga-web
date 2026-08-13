@@ -1,0 +1,166 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+const classes = [
+  {
+    name: 'Vinyasa',
+    image: '/wp-content/uploads/2025/08/Flow.png',
+    alt: 'Flow',
+    paragraphs: [
+      'Flow Yoga or Vinyasa Yoga can be described as the celebration of self through the empowerment of movement. In this class you will be invited to synergize one breath with one movement. This format of class may move quickly, like water can sometimes flow in a river, depending on the teacher. Flow can be dynamic and challenging and caters to beginners as well as experienced yogis. Oftentimes in flow classes, the instructor will set up the base of the sequence and then offer a flow state.',
+    ],
+  },
+  {
+    name: 'Gentle',
+    image: '/wp-content/uploads/2025/08/Gentle.png',
+    alt: 'Gentle',
+    paragraphs: [
+      'Join us for a gentle flow yoga practice to release body and mind. Gentle Yoga operates at a slower tempo. This class incorporates strengthening and stretching poses at a moderate pace with an emphasis on healthy biomechanics. Includes breathwork and deep relaxation. Great for rehab and recovery. All levels are welcome.',
+    ],
+  },
+  {
+    name: 'Yin',
+    image: '/wp-content/uploads/2025/08/Yin-compressed-1.png',
+    alt: 'Yin',
+    paragraphs: [
+      'Yin Yoga is a slow, quiet practice that applies intelligent stress to the body’s tendons, joints, bones, fascia, and ligaments through longer-held, passive postures supported by props. Yin supports joint health, overall flexibility, and tissue resilience. By targeting fascia, joint structures, and even vital organs, the practice stimulates blood flow, encourages regeneration, and helps reclaim lost mobility while preventing future injury. On a mental-emotional level, the extended holds create a container for mindfulness, breath awareness, and compassionate presence. Students learn to sit with a wide range of sensations, cultivating patience, impulse control, and emotional resilience. Yin draws from Taoist Yoga, Traditional Chinese Medicine, and meridian theory. By stimulating the body’s energy pathways (chi), the practice restores balance and harmony to the subtle body.',
+    ],
+  },
+  {
+    name: 'Kundalini',
+    image: '/wp-content/uploads/2025/08/Power.png',
+    alt: 'Kundalini',
+    paragraphs: [
+      'Kundalini Yoga is called the Yoga of Awareness. It is a dynamic, powerful tool that is designed to give you an experience of your soul.',
+      'In Kundalini Yoga we harness the mental, physical, and nervous energies of the body and put them under the domain of the will, which is the instrument of the soul. This technology precisely and consciously combines breath, mudra, eye-focus, mantra, body locks, and postures to balance the glandular system, strengthen the nervous system, expand lung capacity, purify the blood, and clear unconscious patterns that no longer serve us (karma). This practice brings balance to the body, mind, and soul.',
+      'Kundalini Yoga is not a religion. When we apply the technology of Kundalini Yoga to our bodies and minds, it has the effect of uplifting the spirit. It is for everyone. It is universal and non-denominational.',
+    ],
+  },
+  {
+    name: 'Vin Yin',
+    image: '/wp-content/uploads/2025/08/Gentle.png',
+    alt: 'Vin Yin',
+    paragraphs: [
+      'Vin Yin begins the class in vinyasa format where breath and movement are linked; followed by a receptive Yin practice with longer holds. This format caters to a balanced practice craving some exertion and movement while honoring our receptive and restful nature. All levels welcome.',
+    ],
+  },
+  {
+    name: 'Restorative Yin & Sound Healing',
+    image: '/wp-content/uploads/2025/08/Gentle.png',
+    alt: 'Restorative Yin & Sound Healing',
+    paragraphs: [
+      'Sink into a deeply soothing journey of supported poses, mindful breathing, and guided relaxation, all culminating in an extended savasana. The practice is accompanied by the healing resonance of crystal and Tibetan singing bowls, mantra, and live Indian Raga vocals and sitar — a symphony to gently guide your spirit toward peace and ease. This meditative experience invites balance between body and mind, melting layers of physical and emotional tension. Open to all levels, it’s an ideal sanctuary for anyone seeking stress relief, nervous system regulation, and deeper self-awareness.',
+    ],
+  },
+  {
+    name: 'Sound Healing',
+    image: '/wp-content/uploads/2025/08/Yin-compressed-1.png',
+    alt: 'Sound Healing',
+    paragraphs: [
+      'Sound baths are a deeply restorative experience where you are immersed in the vibrations of instruments such as gongs, alchemy crystal bowls, and chimes. As you rest comfortably, the sound waves gently guide you into states of deep relaxation and inner calm. Each offering is an invitation to slow down, release stress, and return home to yourself — leaving you feeling centered, grounded, and renewed.',
+    ],
+  },
+];
+
+const etiquette = [
+  'Arrive early to class, new students 15 minutes is suggested',
+  'Please stay home if you are sick, we have virtual offerings!',
+  'Bring a water bottle and a yoga mat if you have one',
+  'If you don’t have a mat you can rent from us for $5 per class',
+  'Your mat rental will be free if you biked or walked!',
+  'Dress in clothes that will allow you to move freely',
+  'When you arrive, kick your shoes off at the door and be greeted by our lovely teaching staff',
+  'We will get you checked in for class and show you the space',
+  'Leave your phone silenced in the lobby',
+  'Doors will be locked 5 minutes after the start of class',
+];
+---
+
+<Base title="Classes - All Purpose Yoga">
+  <PageHero
+    title="Classes"
+    image="/wp-content/uploads/2026/07/Gemini_Generated_Image_45fp6p45fp6p45fp-compressed.png"
+  />
+
+  <section class="section">
+    <div class="container">
+      <p class="kicker center">how do you like to practice?</p>
+      <h2 class="center">something for everyone</h2>
+
+      <div class="class-grid">
+        {classes.map((c) => (
+          <article class="card class-card">
+            <img src={c.image} alt={c.alt} loading="lazy" />
+            <div class="class-body">
+              <h3>{c.name}</h3>
+              {c.paragraphs.map((p) => <p>{p}</p>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section etiquette-section">
+    <div class="container">
+      <h3 class="center">Yoga Etiquette</h3>
+      <ul class="etiquette-list">
+        {etiquette.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .class-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 700px) {
+    .class-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .class-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .class-card img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .class-body {
+    padding: 1.5rem;
+  }
+
+  .etiquette-section {
+    background: var(--cream);
+  }
+
+  .etiquette-list {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    padding-left: 1.25rem;
+    columns: 1;
+  }
+
+  @media (min-width: 768px) {
+    .etiquette-list {
+      columns: 2;
+      column-gap: 3rem;
+    }
+  }
+
+  .etiquette-list li {
+    margin-bottom: 0.75rem;
+    break-inside: avoid;
+  }
+</style>
