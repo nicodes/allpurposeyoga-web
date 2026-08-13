@@ -47,7 +47,7 @@ import { teachers } from '../data/teachers';
             <div class="teacher-body">
               <h3>{t.name}</h3>
               <details>
-                <summary>{t.name}s Bio</summary>
+                <summary>{t.bioLabel}</summary>
                 <div class="bio">
                   <img src={t.portrait} alt={t.modalName ?? t.name} loading="lazy" />
                   <h4>{t.modalName ?? t.name}</h4>

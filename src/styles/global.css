@@ -1,13 +1,10 @@
 :root {
   --white: #ffffff;
-  --light: #f5f5f5;
-  --lavender: #f7ebf9;
   --cream: #f2eed7;
   --maroon: #a02c49;
   --beige: #eae1d6;
   --text: #333333;
   --gold: #e5ad29;
-  --sage: #c3cebd;
   --olive: #6a7c5f;
 
   --font-display: "Playfair Display", serif;
@@ -170,4 +167,20 @@ p {
 
 .center {
   text-align: center;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--maroon);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 12px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+  color: var(--white);
 }
