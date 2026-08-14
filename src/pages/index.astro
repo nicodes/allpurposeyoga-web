@@ -212,28 +212,6 @@ const classCards = [
     </div>
   </section>
 
-  <section class="community-section">
-    <Img
-      src="/wp-content/uploads/2025/12/IMG_0050.jpeg"
-      alt="Community members practicing at All Purpose Yoga"
-      widths={[640, 1200]}
-      sizes="(min-width: 900px) 50vw, 100vw"
-      class="community-img"
-    />
-    <div class="community-copy">
-      <p class="v2-kicker">Practice with purpose</p>
-      <blockquote>
-        “Such a special studio that is heart-led and so inviting. I felt right at home when I
-        arrived.”
-      </blockquote>
-      <cite>— Brooke A.</cite>
-      <p>
-        We believe personal practice can ripple outward into stronger community, self-discovery,
-        and meaningful change.
-      </p>
-    </div>
-  </section>
-
   <section id="connect" class="v2-section connect-section">
     <div class="container connect-layout">
       <div class="connect-heading">
@@ -424,8 +402,7 @@ const classCards = [
     padding: 5.5rem 0;
   }
 
-  .v2-section h2,
-  .community-copy blockquote {
+  .v2-section h2 {
     margin: 0;
     font-size: clamp(2.6rem, 7vw, 5.4rem);
     line-height: 1;
@@ -677,40 +654,6 @@ const classCards = [
     opacity: 0.82;
   }
 
-  .community-section {
-    display: grid;
-    background: var(--cream);
-  }
-
-  :global(.community-img) {
-    width: 100%;
-    height: 100%;
-    min-height: 420px;
-    object-fit: cover;
-  }
-
-  .community-copy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 4rem 1.25rem;
-  }
-
-  .community-copy blockquote {
-    max-width: 680px;
-    color: var(--maroon);
-  }
-
-  .community-copy cite {
-    margin: 1.25rem 0 2rem;
-    font-style: normal;
-    font-weight: 700;
-  }
-
-  .community-copy > p:last-child {
-    max-width: 580px;
-  }
-
   .connect-section {
     background: #f9f5e7;
   }
@@ -799,15 +742,6 @@ const classCards = [
 
     .membership-grid {
       grid-template-columns: repeat(4, 1fr);
-    }
-
-    .community-section {
-      grid-template-columns: 1fr 1fr;
-      min-height: 720px;
-    }
-
-    .community-copy {
-      padding: 6rem clamp(3rem, 7vw, 8rem);
     }
 
     .connect-layout {
