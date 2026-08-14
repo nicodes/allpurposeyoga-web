@@ -48,9 +48,9 @@ const memberships = [
     href: 'https://momence.com/All-Purpose-Yoga/membership/%2450-For-2-Weeks-Unlimited-/668633?sessionId=124183999',
   },
   {
-    name: 'Drop in',
-    price: '$28',
-    unit: 'one class',
+    name: 'Class pack',
+    price: '$40',
+    unit: 'three classes',
     href: 'https://momence.com/All-Purpose-Yoga/membership/3-Classes-for-%2440/519940',
   },
   {
@@ -68,9 +68,24 @@ const memberships = [
 ];
 
 const classCards = [
-  ['5 classes', '$130', '3 month expiration'],
-  ['10 classes', '$220', '6 month expiration'],
-  ['20 classes', '$400', '12 month expiration'],
+  {
+    name: '5 classes',
+    price: '$130',
+    expiry: '3 month expiration',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/5-Class-Card/570277',
+  },
+  {
+    name: '10 classes',
+    price: '$220',
+    expiry: '6 month expiration',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/10-Class-Card/570278',
+  },
+  {
+    name: '20 classes',
+    price: '$400',
+    expiry: '12 month expiration',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/20-Class-Card/570283',
+  },
 ];
 ---
 
@@ -130,7 +145,7 @@ const classCards = [
         <p>
           The live schedule, teacher details, and booking are hosted securely on Momence.
         </p>
-        <a class="action action-light" href="https://momence.com/All-Purpose-Yoga">Open live schedule</a>
+        <a class="action action-light" href="https://momence.com/u/all-purpose-yoga-bp11O7">Open live schedule</a>
         <p class="schedule-fine">New here? Start with two weeks unlimited for $50.</p>
       </div>
     </div>
@@ -196,11 +211,11 @@ const classCards = [
 
       <div class="class-card-row">
         <p>Prefer a class card?</p>
-        {classCards.map(([name, price, expiry]) => (
-          <div>
-            <strong>{name}</strong>
-            <span>{price} · {expiry}</span>
-          </div>
+        {classCards.map((card) => (
+          <a class="class-card" href={card.href}>
+            <strong>{card.name}</strong>
+            <span>{card.price} · {card.expiry}</span>
+          </a>
         ))}
       </div>
 
@@ -338,6 +353,14 @@ const classCards = [
 
   .action:hover {
     transform: translateY(-2px);
+  }
+
+  .action:focus-visible,
+  .scroll-cue:focus-visible,
+  .membership:focus-visible,
+  .class-card:focus-visible {
+    outline: 3px solid #f4d77d;
+    outline-offset: 4px;
   }
 
   .action-primary {
@@ -621,10 +644,23 @@ const classCards = [
   }
 
   .class-card-row p,
+  .class-card-row a,
   .class-card-row strong,
   .class-card-row span {
     display: block;
     margin: 0;
+  }
+
+  .class-card {
+    padding: 0.55rem;
+    border-radius: 10px;
+    color: var(--white);
+    transition: 180ms ease;
+  }
+
+  .class-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
   }
 
   .class-card-row p,
