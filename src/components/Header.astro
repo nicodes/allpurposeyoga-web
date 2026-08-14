@@ -1,74 +1,57 @@
 ---
 import Img from './Img.astro';
 
-interface NavItem {
-  label: string;
-  href?: string;
-  children?: { label: string; href: string }[];
-}
-
-const nav: NavItem[] = [
-  { label: 'Schedule', href: '/#schedule' },
-  { label: 'Classes', href: '/#classes' },
-  { label: 'Events', href: '/events/' },
+const trainings = [
+  { label: 'Mantra Magic', href: '/nada-yoga/' },
   {
-    label: 'Trainings',
-    children: [
-      { label: 'Mantra Magic', href: '/nada-yoga/' },
-      {
-        label: 'Bridging The Gap To Teaching',
-        href: 'https://momence.com/All-Purpose-Yoga/Bridging-The-Gap-To-Teaching/128777664?skipPreview=true',
-      },
-    ],
+    label: 'Bridging The Gap To Teaching',
+    href: 'https://momence.com/All-Purpose-Yoga/Bridging-The-Gap-To-Teaching/128777664?skipPreview=true',
   },
-  { label: 'Pricing', href: '/#pricing' },
-  { label: 'About Us', href: '/about/' },
-  { label: 'Connect', href: '/#connect' },
 ];
-
-const path = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="logo" aria-label="All Purpose Yoga home">
-      <Img src="/wp-content/uploads/2025/08/AllPurposeYogaRound-compressed.png" alt="All Purpose Yoga" widths={[100, 200]} sizes="(min-width: 1024px) 100px, 72px" loading="eager" class="logo-img" />
+      <Img
+        src="/wp-content/uploads/2025/08/AllPurposeYogaRound-compressed.png"
+        alt="All Purpose Yoga"
+        widths={[100, 200]}
+        sizes="(min-width: 1024px) 100px, 64px"
+        loading="eager"
+        class="logo-img header-logo"
+      />
     </a>
 
-    <div class="header-right">
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
-      <label for="nav-toggle" class="hamburger">
-        <span></span><span></span><span></span>
-        <em>Menu</em>
-      </label>
-
-      <nav class="main-nav" aria-label="Main">
+    <nav class="secondary-nav" aria-label="Explore All Purpose Yoga">
+      <a href="/events/">Events</a>
+      <details class="trainings-menu">
+        <summary>Trainings</summary>
         <ul>
-          {nav.map((item) => (
-            <li class={item.children ? 'has-dropdown' : ''}>
-              {item.children ? (
-                <details>
-                  <summary class:list={[{ active: item.children.some((c) => c.href === path) }]}>
-                    {item.label}
-                  </summary>
-                  <ul class="dropdown">
-                    {item.children.map((child) => (
-                      <li>
-                        <a href={child.href}>
-                          {child.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              ) : (
-                <a href={item.href} class:list={[{ active: path === item.href }]}>{item.label}</a>
-              )}
-            </li>
+          {trainings.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
           ))}
         </ul>
-      </nav>
+      </details>
+      <a href="/about/">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-cta pricing-cta" href="/#pricing">Pricing</a>
+      <a class="header-cta schedule-cta" href="/#schedule">View schedule</a>
     </div>
+
+    <details class="mobile-more">
+      <summary aria-label="Open more navigation">
+        <span></span><span></span><span></span>
+      </summary>
+      <nav aria-label="More navigation">
+        <a href="/events/">Events</a>
+        <a href="/nada-yoga/">Mantra Magic</a>
+        <a href={trainings[1].href}>Bridging The Gap To Teaching</a>
+        <a href="/about/">About Us</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -77,174 +60,257 @@ const path = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--cream);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.08);
+    background: rgba(242, 238, 215, 0.97);
+    backdrop-filter: blur(12px);
   }
 
   .header-inner {
+    position: relative;
+    display: flex;
     max-width: var(--max-width);
+    min-height: 80px;
     margin: 0 auto;
-    padding: 0.5rem 1.25rem;
+    padding: 0.45rem 0.75rem;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .logo {
+    flex: 0 0 auto;
+    margin-right: auto;
+  }
+
+  :global(.header-logo) {
+    width: 64px;
+    height: auto;
+  }
+
+  .secondary-nav {
+    display: none;
+  }
+
+  .header-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    gap: 0.4rem;
   }
 
-  .header-right {
-    display: flex;
+  .header-cta {
+    display: inline-flex;
+    min-height: 38px;
     align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.72rem;
+    border: 2px solid var(--maroon);
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 180ms ease;
   }
 
-  .nav-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
+  .pricing-cta {
+    color: var(--maroon);
   }
 
-  .nav-toggle:focus-visible ~ .hamburger {
-    outline: 2px solid var(--maroon);
-    outline-offset: 2px;
+  .pricing-cta:hover {
+    background: var(--maroon);
+    color: var(--white);
   }
 
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .schedule-cta {
+    background: var(--maroon);
+    color: var(--white);
+  }
+
+  .schedule-cta:hover {
+    border-color: #7d2038;
+    background: #7d2038;
+    color: var(--white);
+  }
+
+  .mobile-more {
+    flex: 0 0 auto;
+  }
+
+  .mobile-more > summary {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-content: center;
     gap: 4px;
     cursor: pointer;
-    padding: 0.5rem;
   }
 
-  .hamburger span {
-    width: 24px;
+  .mobile-more > summary::-webkit-details-marker,
+  .trainings-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-more > summary::marker,
+  .trainings-menu > summary::marker {
+    content: "";
+  }
+
+  .mobile-more > summary:focus-visible,
+  .header-cta:focus-visible,
+  .secondary-nav a:focus-visible,
+  .trainings-menu > summary:focus-visible {
+    outline: 2px solid var(--maroon);
+    outline-offset: 3px;
+  }
+
+  .mobile-more > summary span {
+    width: 22px;
     height: 2px;
     background: var(--text);
   }
 
-  .hamburger em {
-    font-style: normal;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .main-nav {
-    display: none;
+  .mobile-more nav {
     position: absolute;
     top: 100%;
-    left: 0;
     right: 0;
+    left: 0;
+    display: grid;
+    padding: 1rem 1.25rem 1.25rem;
     background: var(--maroon);
+    box-shadow: 0 18px 40px rgba(51, 24, 31, 0.22);
   }
 
-  .nav-toggle:checked ~ .main-nav {
-    display: block;
-  }
-
-  .main-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-  }
-
-  .main-nav a,
-  .main-nav summary {
-    display: block;
-    padding: 0.75rem 1.5rem;
+  .mobile-more nav a {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     color: var(--white);
-    font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
   }
 
-  .main-nav summary::-webkit-details-marker {
-    display: none;
+  .mobile-more nav a:last-child {
+    border-bottom: 0;
   }
 
-  .main-nav summary::marker {
-    content: "";
-  }
+  @media (max-width: 359px) {
+    .header-inner {
+      min-height: 70px;
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      gap: 0.25rem;
+    }
 
-  .main-nav summary::after {
-    content: "▾";
-    float: right;
-  }
+    :global(.header-logo) {
+      width: 54px;
+    }
 
-  .main-nav a:hover,
-  .main-nav summary:hover {
-    color: var(--gold);
-  }
+    .header-actions {
+      gap: 0.25rem;
+    }
 
-  .main-nav a.active,
-  .main-nav summary.active {
-    text-decoration: underline;
-    text-decoration-color: var(--gold);
-    text-underline-offset: 4px;
-  }
+    .header-cta {
+      min-height: 34px;
+      padding: 0.45rem 0.55rem;
+      font-size: 0.58rem;
+    }
 
-  .dropdown {
-    padding: 0 !important;
-  }
-
-  .dropdown a {
-    padding-left: 2.25rem;
-    font-size: 0.8125rem;
+    .mobile-more > summary {
+      width: 34px;
+      height: 34px;
+    }
   }
 
   @media (min-width: 1024px) {
-    .hamburger {
-      display: none;
+    .header-inner {
+      min-height: 116px;
+      padding: 0.5rem 1.25rem;
+      gap: 2rem;
     }
 
-    .main-nav {
-      display: block;
-      position: static;
-      background: transparent;
+    :global(.header-logo) {
+      width: 100px;
     }
 
-    .main-nav > ul {
+    .secondary-nav {
       display: flex;
-      gap: 2.8125rem;
-      padding: 0;
+      align-items: center;
+      gap: 2rem;
     }
 
-    .main-nav a,
-    .main-nav summary {
-      padding: 0.5rem 0;
+    .secondary-nav > a,
+    .trainings-menu > summary {
       color: var(--text);
-      font-size: 0.875rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .has-dropdown {
+    .secondary-nav > a:hover,
+    .trainings-menu > summary:hover {
+      color: var(--maroon);
+    }
+
+    .trainings-menu {
       position: relative;
     }
 
-    .has-dropdown .dropdown {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      min-width: 240px;
-      background: var(--white);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      border-radius: 0 0 12px 12px;
-      display: none;
+    .trainings-menu > summary {
+      cursor: pointer;
     }
 
-    .has-dropdown details[open] .dropdown {
-      display: block;
-    }
-
-    .dropdown a {
-      padding: 0.625rem 1.25rem;
-      color: var(--text);
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .dropdown a:hover {
+    .trainings-menu > summary::after {
+      content: " +";
       color: var(--maroon);
+    }
+
+    .trainings-menu[open] > summary::after {
+      content: " −";
+    }
+
+    .trainings-menu ul {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: -1.25rem;
+      width: 260px;
+      margin: 0;
+      padding: 0.75rem;
+      border-radius: 14px;
+      background: var(--white);
+      list-style: none;
+      box-shadow: 0 16px 38px rgba(51, 24, 31, 0.16);
+    }
+
+    .trainings-menu li + li {
+      border-top: 1px solid rgba(51, 51, 51, 0.1);
+    }
+
+    .trainings-menu li a {
+      display: block;
+      padding: 0.75rem 0.5rem;
+      color: var(--text);
+      font-size: 0.8rem;
+    }
+
+    .trainings-menu li a:hover {
+      color: var(--maroon);
+    }
+
+    .header-actions {
+      gap: 0.65rem;
+    }
+
+    .header-cta {
+      min-height: 44px;
+      padding: 0.7rem 1.1rem;
+      font-size: 0.74rem;
+    }
+
+    .mobile-more {
+      display: none;
     }
   }
 </style>
