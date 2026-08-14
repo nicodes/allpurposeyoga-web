@@ -8,8 +8,8 @@ interface NavItem {
 }
 
 const nav: NavItem[] = [
-  { label: 'Schedule', href: '/schedule/' },
-  { label: 'Classes', href: '/classes/' },
+  { label: 'Schedule', href: '/#schedule' },
+  { label: 'Classes', href: '/#classes' },
   { label: 'Events', href: '/events/' },
   {
     label: 'Trainings',
@@ -21,9 +21,9 @@ const nav: NavItem[] = [
       },
     ],
   },
-  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Pricing', href: '/#pricing' },
   { label: 'About Us', href: '/about/' },
-  { label: 'Connect', href: '/connect/' },
+  { label: 'Connect', href: '/#connect' },
 ];
 
 const path = Astro.url.pathname;

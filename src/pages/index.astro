@@ -1,244 +1,887 @@
 ---
-import { getImage } from 'astro:assets';
 import Base from '../layouts/Layout.astro';
 import Img from '../components/Img.astro';
-import { resolveImage } from '../utils/images';
 
-const tetons = await getImage({
-  src: resolveImage('/wp-content/uploads/2025/08/Tetons-compressed.png'),
-  width: 1600,
-  format: 'webp',
-  quality: 60,
-});
+const classes = [
+  {
+    name: 'Vinyasa',
+    image: '/wp-content/uploads/2025/08/Flow.png',
+    description: 'One breath, one movement. A dynamic flow for beginners and experienced yogis alike.',
+  },
+  {
+    name: 'Gentle',
+    image: '/wp-content/uploads/2025/08/Gentle.png',
+    description: 'A slower practice for strengthening, stretching, breathwork, and deep relaxation.',
+  },
+  {
+    name: 'Yin',
+    image: '/wp-content/uploads/2025/08/Yin-compressed-1.png',
+    description: 'Longer-held, supported postures for joint health, mobility, and mindful presence.',
+  },
+  {
+    name: 'Kundalini',
+    image: '/wp-content/uploads/2025/08/Power.png',
+    description: 'Breath, mantra, meditation, and movement in the Yoga of Awareness.',
+  },
+  {
+    name: 'Vin Yin',
+    image: '/wp-content/uploads/2025/08/Gentle.png',
+    description: 'An energizing vinyasa flow followed by a receptive, restful Yin practice.',
+  },
+  {
+    name: 'Restorative Yin & Sound Healing',
+    image: '/wp-content/uploads/2025/08/Gentle.png',
+    description: 'Supported poses, mindful breathing, and the resonance of bowls, mantra, and live music.',
+  },
+  {
+    name: 'Sound Healing',
+    image: '/wp-content/uploads/2025/08/Yin-compressed-1.png',
+    description: 'An immersive sound bath created for deep rest, calm, and renewal.',
+  },
+];
+
+const memberships = [
+  {
+    name: 'New students',
+    price: '$50',
+    unit: 'two weeks unlimited',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/%2450-For-2-Weeks-Unlimited-/668633?sessionId=124183999',
+  },
+  {
+    name: 'Drop in',
+    price: '$28',
+    unit: 'one class',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/3-Classes-for-%2440/519940',
+  },
+  {
+    name: 'Unlimited',
+    price: '$129',
+    unit: 'per month',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/Sangha-Unlimited-Membership/853879',
+  },
+  {
+    name: 'Reduced rate unlimited',
+    price: '$99',
+    unit: 'per month',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/Sangha-Student-Unlimited-Membership/853881',
+  },
+];
+
+const classCards = [
+  ['5 classes', '$130', '3 month expiration'],
+  ['10 classes', '$220', '6 month expiration'],
+  ['20 classes', '$400', '12 month expiration'],
+];
 ---
 
 <Base
-  title="Home - All Purpose Yoga"
-  description="All Purpose Yoga is a small locally operated and female owned yoga studio in Boulder, CO. View our class schedule, events, trainings, and pricing."
+  title="All Purpose Yoga | Boulder, Colorado"
+  description="Practice yoga in Boulder, CO at All Purpose Yoga. Explore our schedule, classes, pricing, and welcoming studio community."
 >
-  <section class="home-hero">
+  <section class="v2-hero">
     <Img
       src="/wp-content/uploads/2025/12/IMG_0033.jpeg"
-      alt=""
+      alt="A restorative yoga class at All Purpose Yoga"
       widths={[640, 1440]}
       sizes="100vw"
       loading="eager"
       fetchpriority="high"
       quality={55}
-      class="home-hero-img"
+      class="v2-hero-img"
     />
-    <div class="home-hero-inner container">
-      <p class="hero-eyebrow">connect with</p>
-      <h1>your purpose<br />your being</h1>
-      <a class="btn" href="/schedule/">Carpe Diem – Book Today</a>
-    </div>
-  </section>
-
-  <section class="section about-section">
-    <div class="container about-grid">
-      <div>
-        <p class="kicker">just a little bit</p>
-        <h2>About Us</h2>
-        <p>
-          We are a small locally operated and female owned yoga studio. Our mission at All Purpose
-          Yoga is to enhance the world we live in, from commitment to personal practice to the ways
-          we are then able to give back to society. At All Purpose Yoga we strive to encourage
-          agency in our own bodies and minds to navigate with a sense of responsibility and
-          ownership to the power we possess to make an impact with our time here.
-        </p>
-        <p>
-          Our vision is to make regular strides toward self-discovery alongside the community.
-          Embracing individuality, authenticity and diverse teaching modalities, All Purpose Yoga
-          serves as a platform for life long learners and social change agents.
-        </p>
-        <a class="btn" href="/schedule/">View Our Class Schedule</a>
-      </div>
-      <Img
-        src="/wp-content/uploads/2025/12/IMG_0050.jpeg"
-        alt="All Purpose Yoga studio interior"
-        widths={[480, 768, 1024]}
-        sizes="(min-width: 900px) 45vw, calc(100vw - 2.5rem)"
-        class="about-grid-img"
-      />
-    </div>
-  </section>
-
-  <section class="section testimonials-section" style={`--tetons: url('${tetons.src}')`}>
-    <div class="container">
-      <p class="center mantra">
-        Lokah Samastah Sukhino Bhavantu<br />
-        <span>May all beings everywhere be happy and free</span>
+    <div class="v2-hero-shade"></div>
+    <div class="container v2-hero-content">
+      <p class="v2-eyebrow">Yoga for everyday life · Boulder, Colorado</p>
+      <h1>Find the practice<br />that meets you here.</h1>
+      <p class="v2-intro">
+        A locally operated, female owned studio for all levels, all goals, and all people.
       </p>
-      <p class="kicker center">What others say about us</p>
-      <h2 class="center">Testimonials</h2>
-      <div class="testimonial-grid">
-        <figure class="card">
-          <Img src="/wp-content/uploads/2025/08/Gayatri-1-compressed.jpg" alt="Gayatri" widths={[480, 768]} sizes="(min-width: 900px) 33vw, calc(100vw - 2.5rem)" class="testimonial-img" />
-          <blockquote>
-            “All Purpose Yoga Studio in Boulder is a gem. Greatly enjoyed a class with Gayatri. She
-            is a gifted teacher with much knowledge and expertise of both the postures and the
-            healing energy of yoga! Thank you!”
-          </blockquote>
-          <figcaption>— Daria R.</figcaption>
-        </figure>
-        <figure class="card">
-          <Img src="/wp-content/uploads/2025/10/IMG_4477-compressed.jpg" alt="Studio space" widths={[480, 768]} sizes="(min-width: 900px) 33vw, calc(100vw - 2.5rem)" class="testimonial-img" />
-          <blockquote>
-            “So grateful that All Purpose exists! Such a special studio that is heart-led and so
-            inviting. The space is full of beautiful light, and adorned with plants and alter items.
-            I felt right at home when I arrived and loved my vinyasa class with Jade. Highly
-            recommend checking out Boulder’s newest yoga studio!”
-          </blockquote>
-          <figcaption>— Brooke A.</figcaption>
-        </figure>
-        <figure class="card">
-          <Img
-            src="/wp-content/uploads/2026/05/Image-5-28-26-at-10.17-PM.jpeg"
-            alt="Class in session"
-            widths={[480, 768]}
-            sizes="(min-width: 900px) 33vw, calc(100vw - 2.5rem)"
-            class="testimonial-img"
-          />
-          <blockquote>
-            “Carlie invited me in to FINALLY have my first flow with you. I’m so happy to see what’s
-            been created here and the sweet and deeply nurturing ambiance of the space and
-            community. I can’t wait to be back again!”
-          </blockquote>
-          <figcaption>— Kaitlyn R.</figcaption>
-        </figure>
+      <div class="hero-actions">
+        <a class="action action-primary" href="#schedule">View the schedule</a>
+        <a class="action action-secondary" href="#classes">Explore classes</a>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#schedule">
+      <span>Start here</span>
+      <span aria-hidden="true">↓</span>
+    </a>
+  </section>
+
+  <nav class="section-nav" aria-label="Homepage sections">
+    <div class="container section-nav-inner">
+      <span>Plan your visit</span>
+      <a href="#schedule">Schedule</a>
+      <a href="#classes">Classes</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#connect">Connect</a>
+    </div>
+  </nav>
+
+  <section id="schedule" class="v2-section schedule-section">
+    <div class="container schedule-layout">
+      <div class="section-copy">
+        <p class="v2-kicker">Make space for yourself</p>
+        <h2>Your next practice starts here.</h2>
+        <p>
+          Move, breathe, rest, and reconnect. Our weekly schedule brings together Vinyasa, Gentle,
+          Yin, Kundalini, restorative practices, and sound healing in one welcoming space.
+        </p>
+        <ul class="schedule-notes">
+          <li>No added heat</li>
+          <li>All levels welcome</li>
+          <li>Live stream classes available</li>
+          <li>Studio mats available</li>
+        </ul>
+      </div>
+
+      <div class="schedule-card">
+        <p class="schedule-label">Live class calendar</p>
+        <p class="schedule-day">Practice this week</p>
+        <p>
+          The live schedule, teacher details, and booking are hosted securely on Momence.
+        </p>
+        <a class="action action-light" href="https://momence.com/All-Purpose-Yoga">Open live schedule</a>
+        <p class="schedule-fine">New here? Start with two weeks unlimited for $50.</p>
       </div>
     </div>
   </section>
 
-  <section class="section cta-band center">
+  <section id="classes" class="v2-section classes-section">
     <div class="container">
-      <p class="kicker">book a</p>
-      <h2>class or workshop</h2>
-      <a class="btn" href="/classes/">Browse Classes</a>
+      <div class="section-heading-row">
+        <div>
+          <p class="v2-kicker">How do you like to practice?</p>
+          <h2>Something for everyone.</h2>
+        </div>
+        <p>
+          Build heat, slow down, listen inward, or settle into sound. Choose the practice your day
+          is asking for.
+        </p>
+      </div>
+
+      <div class="class-list">
+        {classes.map((practice, index) => (
+          <article class="practice-card">
+            <span class="practice-number">{String(index + 1).padStart(2, '0')}</span>
+            <Img
+              src={practice.image}
+              alt=""
+              widths={[240, 420]}
+              sizes="(min-width: 900px) 180px, 96px"
+              class="practice-icon"
+            />
+            <div>
+              <h3>{practice.name}</h3>
+              <p>{practice.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="v2-section pricing-section">
+    <div class="container">
+      <div class="pricing-lead">
+        <div>
+          <p class="v2-kicker light">Begin where you are</p>
+          <h2>A simple way into practice.</h2>
+        </div>
+        <p>
+          Start with our two-week unlimited offer, choose a monthly rhythm, or keep things flexible
+          with a class card.
+        </p>
+      </div>
+
+      <div class="membership-grid">
+        {memberships.map((plan, index) => (
+          <a class:list={['membership', { featured: index === 0 }]} href={plan.href}>
+            {index === 0 && <span class="best-value">Best place to begin</span>}
+            <span class="membership-name">{plan.name}</span>
+            <strong>{plan.price}</strong>
+            <span>{plan.unit}</span>
+            <span class="membership-link">Choose this option →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="class-card-row">
+        <p>Prefer a class card?</p>
+        {classCards.map(([name, price, expiry]) => (
+          <div>
+            <strong>{name}</strong>
+            <span>{price} · {expiry}</span>
+          </div>
+        ))}
+      </div>
+
+      <p class="reduced-rate">
+        Reduced unlimited membership is offered to students, first responders, military, seniors,
+        healthcare workers, and teachers.
+      </p>
+    </div>
+  </section>
+
+  <section class="community-section">
+    <Img
+      src="/wp-content/uploads/2025/12/IMG_0050.jpeg"
+      alt="Community members practicing at All Purpose Yoga"
+      widths={[640, 1200]}
+      sizes="(min-width: 900px) 50vw, 100vw"
+      class="community-img"
+    />
+    <div class="community-copy">
+      <p class="v2-kicker">Practice with purpose</p>
+      <blockquote>
+        “Such a special studio that is heart-led and so inviting. I felt right at home when I
+        arrived.”
+      </blockquote>
+      <cite>— Brooke A.</cite>
+      <p>
+        We believe personal practice can ripple outward into stronger community, self-discovery,
+        and meaningful change.
+      </p>
+    </div>
+  </section>
+
+  <section id="connect" class="v2-section connect-section">
+    <div class="container connect-layout">
+      <div class="connect-heading">
+        <p class="v2-kicker">Come as you are</p>
+        <h2>Meet us on the mat.</h2>
+      </div>
+
+      <div class="connect-details">
+        <div>
+          <span class="detail-label">Studio</span>
+          <address>
+            2825 Wilderness Place<br />
+            Boulder, CO 80301
+          </address>
+        </div>
+        <div>
+          <span class="detail-label">Reach us</span>
+          <a href="tel:2035205145">203-520-5145</a>
+          <a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a>
+        </div>
+      </div>
+
+      <div class="connect-actions">
+        <a class="action action-primary" href="#schedule">Book a class</a>
+        <a class="action action-outline" href="mailto:info@allpurposeyoga.com">Email the studio</a>
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .home-hero {
+  .v2-hero {
+    min-height: calc(100svh - 80px);
     position: relative;
     display: flex;
-    align-items: center;
-    min-height: 88vh;
+    align-items: flex-end;
     overflow: hidden;
+    color: var(--white);
   }
 
-  .home-hero::before {
-    content: "";
+  :global(.v2-hero-img) {
     position: absolute;
     inset: 0;
-    z-index: 1;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 40%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 58% center;
   }
 
-  .home-hero-inner {
+  .v2-hero-shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(26, 20, 17, 0.86) 0%, rgba(26, 20, 17, 0.5) 48%, rgba(26, 20, 17, 0.08) 78%),
+      linear-gradient(0deg, rgba(26, 20, 17, 0.5) 0%, transparent 45%);
+  }
+
+  .v2-hero-content {
     position: relative;
     z-index: 2;
+    padding-top: 8rem;
+    padding-bottom: 7rem;
   }
 
-  .home-hero-inner {
-    width: 100%;
-    text-align: center;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .home-hero-inner {
-      text-align: left;
-    }
-
-    .home-hero-inner .btn {
-      float: right;
-    }
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 10vw, 6.25rem);
-    line-height: 1.1;
-    color: var(--gold);
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.36);
-    margin: 0;
-  }
-
-  .home-hero h1 {
-    font-size: clamp(3rem, 10vw, 6.25rem);
-    color: var(--white);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.64);
-    margin: 0 0 1.5rem;
-  }
-
-  .about-section {
-    background: linear-gradient(0deg, rgba(245, 234, 202, 0.53) 0%, rgba(245, 234, 202, 0.25) 100%);
-  }
-
-  .about-grid {
-    display: grid;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  @media (min-width: 900px) {
-    .about-grid {
-      grid-template-columns: 1.2fr 1fr;
-    }
-  }
-
-  .testimonials-section {
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
-      var(--tetons) center / cover no-repeat var(--beige);
-  }
-
-  .mantra {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--maroon);
-    margin-bottom: 3rem;
-  }
-
-  .mantra span {
-    font-size: 1rem;
+  .v2-eyebrow,
+  .v2-kicker {
+    margin: 0 0 1rem;
     font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .v2-eyebrow {
+    color: #f4d77d;
+  }
+
+  .v2-kicker {
+    color: var(--maroon);
+  }
+
+  .v2-kicker.light {
+    color: #f4d77d;
+  }
+
+  .v2-hero h1 {
+    max-width: 880px;
+    margin: 0;
+    color: var(--white);
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .v2-intro {
+    max-width: 590px;
+    margin: 1.75rem 0 0;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+
+  .hero-actions,
+  .connect-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  .action {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.4rem;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: 180ms ease;
+  }
+
+  .action:hover {
+    transform: translateY(-2px);
+  }
+
+  .action-primary {
+    background: var(--maroon);
+    color: var(--white);
+  }
+
+  .action-primary:hover {
+    background: #7d2038;
+    color: var(--white);
+  }
+
+  .action-secondary {
+    border-color: rgba(255, 255, 255, 0.76);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+    backdrop-filter: blur(8px);
+  }
+
+  .action-secondary:hover {
+    background: var(--white);
+    color: var(--maroon);
+  }
+
+  .action-light {
+    background: var(--cream);
+    color: var(--maroon);
+  }
+
+  .action-outline {
+    border-color: var(--maroon);
+    color: var(--maroon);
+  }
+
+  .scroll-cue {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .scroll-cue span:last-child {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+  }
+
+  .section-nav {
+    position: sticky;
+    top: 92px;
+    z-index: 90;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+    background: rgba(242, 238, 215, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  .section-nav-inner {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .section-nav span,
+  .section-nav a {
+    white-space: nowrap;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .section-nav span {
+    color: #4f6047;
+  }
+
+  .section-nav a {
     color: var(--text);
   }
 
-  .testimonial-grid {
-    display: grid;
-    gap: 2rem;
-  }
-
-  @media (min-width: 900px) {
-    .testimonial-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .testimonial-grid figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .testimonial-grid blockquote {
-    margin: 0;
-    padding: 1.5rem 1.5rem 0.5rem;
-    font-style: italic;
-  }
-
-  .testimonial-grid figcaption {
-    padding: 0 1.5rem 1.5rem;
-    font-weight: 600;
+  .section-nav a:hover {
     color: var(--maroon);
   }
 
-  .cta-band {
+  .v2-section {
+    scroll-margin-top: 150px;
+    padding: 5.5rem 0;
+  }
+
+  .v2-section h2,
+  .community-copy blockquote {
+    margin: 0;
+    font-size: clamp(2.6rem, 7vw, 5.4rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+
+  .schedule-section {
+    background: #f9f5e7;
+  }
+
+  .schedule-layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .section-copy > p:not(.v2-kicker) {
+    max-width: 650px;
+    margin-top: 1.5rem;
+    font-size: 1.06rem;
+  }
+
+  .schedule-notes {
+    display: grid;
+    gap: 0.65rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .schedule-notes li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .schedule-notes li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .schedule-card {
+    align-self: stretch;
+    padding: 2.25rem;
+    border-radius: 28px;
+    background: var(--maroon);
+    color: var(--white);
+    box-shadow: 0 24px 70px rgba(99, 30, 49, 0.2);
+  }
+
+  .schedule-label,
+  .detail-label {
+    display: block;
+    margin: 0 0 1rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .schedule-day {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1;
+  }
+
+  .schedule-card > p:not(.schedule-day, .schedule-label, .schedule-fine) {
+    max-width: 440px;
+  }
+
+  .schedule-fine {
+    margin: 1.4rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+
+  .classes-section {
+    background: var(--white);
+  }
+
+  .section-heading-row {
+    display: grid;
+    gap: 1.5rem;
+    align-items: end;
+    margin-bottom: 3rem;
+  }
+
+  .section-heading-row > p {
+    max-width: 520px;
+  }
+
+  .class-list {
+    border-top: 1px solid rgba(51, 51, 51, 0.18);
+  }
+
+  .practice-card {
+    display: grid;
+    grid-template-columns: 36px 72px 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.18);
+  }
+
+  .practice-number {
+    align-self: start;
+    color: var(--olive);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  :global(.practice-icon) {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+  }
+
+  .practice-card h3 {
+    margin: 0 0 0.25rem;
+    color: var(--text);
+    font-size: clamp(1.45rem, 4vw, 2.1rem);
+  }
+
+  .practice-card p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .pricing-section {
+    background: #6d263d;
+    color: var(--white);
+  }
+
+  .pricing-section h2 {
+    color: var(--white);
+  }
+
+  .pricing-lead {
+    display: grid;
+    gap: 1.5rem;
+    align-items: end;
+    margin-bottom: 3rem;
+  }
+
+  .pricing-lead > p {
+    max-width: 520px;
+  }
+
+  .membership-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .membership {
+    position: relative;
+    display: flex;
+    min-height: 260px;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 24px;
+    color: var(--white);
+    transition: 180ms ease;
+  }
+
+  .membership:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+
+  .membership.featured {
     background: var(--cream);
+    color: var(--maroon);
+  }
+
+  .membership.featured:hover {
+    color: var(--maroon);
+  }
+
+  .best-value {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .membership-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .membership strong {
+    margin: 0.35rem 0;
+    font-family: var(--font-display);
+    font-size: clamp(3.25rem, 8vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .membership-link {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .class-card-row {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .class-card-row p,
+  .class-card-row strong,
+  .class-card-row span {
+    display: block;
+    margin: 0;
+  }
+
+  .class-card-row p,
+  .class-card-row strong {
+    font-weight: 700;
+  }
+
+  .class-card-row span {
+    font-size: 0.8rem;
+    opacity: 0.75;
+  }
+
+  .reduced-rate {
+    max-width: 740px;
+    margin: 2rem auto 0;
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.82;
+  }
+
+  .community-section {
+    display: grid;
+    background: var(--cream);
+  }
+
+  :global(.community-img) {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+  }
+
+  .community-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 1.25rem;
+  }
+
+  .community-copy blockquote {
+    max-width: 680px;
+    color: var(--maroon);
+  }
+
+  .community-copy cite {
+    margin: 1.25rem 0 2rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .community-copy > p:last-child {
+    max-width: 580px;
+  }
+
+  .connect-section {
+    background: #f9f5e7;
+  }
+
+  .connect-layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .connect-details {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(51, 51, 51, 0.16);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.16);
+  }
+
+  .connect-details address {
+    font-style: normal;
+  }
+
+  .connect-details a {
+    display: block;
+    width: fit-content;
+    color: var(--maroon);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (min-width: 700px) {
+    .scroll-cue {
+      display: flex;
+    }
+
+    .schedule-layout {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: stretch;
+    }
+
+    .section-heading-row,
+    .pricing-lead {
+      grid-template-columns: 1.25fr 0.75fr;
+    }
+
+    .practice-card {
+      grid-template-columns: 54px 110px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+    }
+
+    :global(.practice-icon) {
+      width: 96px;
+      height: 96px;
+    }
+
+    .membership-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .class-card-row {
+      grid-template-columns: 1.25fr repeat(3, 1fr);
+      align-items: center;
+    }
+
+    .connect-details {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .v2-hero-content {
+      padding-bottom: 8rem;
+    }
+
+    .v2-section {
+      padding: 8rem 0;
+    }
+
+    .schedule-layout {
+      gap: 6rem;
+    }
+
+    .schedule-card {
+      padding: 3rem;
+    }
+
+    .membership-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .community-section {
+      grid-template-columns: 1fr 1fr;
+      min-height: 720px;
+    }
+
+    .community-copy {
+      padding: 6rem clamp(3rem, 7vw, 8rem);
+    }
+
+    .connect-layout {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: end;
+    }
+
+    .connect-heading {
+      grid-row: 1 / span 2;
+    }
+
+    .connect-actions {
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-nav {
+      top: 116px;
+    }
+
+    .v2-section {
+      scroll-margin-top: 170px;
+    }
   }
 </style>
