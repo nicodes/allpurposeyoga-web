@@ -150,9 +150,8 @@ const classCards = [
       </div>
 
       <div class="class-list">
-        {classes.map((practice, index) => (
+        {classes.map((practice) => (
           <article class="practice-card">
-            <span class="practice-number">{String(index + 1).padStart(2, '0')}</span>
             <Img
               src={practice.image}
               alt=""
@@ -503,19 +502,11 @@ const classCards = [
 
   .practice-card {
     display: grid;
-    grid-template-columns: 36px 72px 1fr;
+    grid-template-columns: 72px 1fr;
     gap: 1rem;
     align-items: center;
     padding: 1.25rem 0;
     border-bottom: 1px solid rgba(51, 51, 51, 0.18);
-  }
-
-  .practice-number {
-    align-self: start;
-    color: var(--olive);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
   }
 
   :global(.practice-icon) {
@@ -699,7 +690,7 @@ const classCards = [
     }
 
     .practice-card {
-      grid-template-columns: 54px 110px 1fr;
+      grid-template-columns: 110px 1fr;
       gap: 1.5rem;
       padding: 1.5rem 0;
     }
