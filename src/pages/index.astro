@@ -107,16 +107,6 @@ const classCards = [
     </a>
   </section>
 
-  <nav class="section-nav" aria-label="Homepage sections">
-    <div class="container section-nav-inner">
-      <span>Plan your visit</span>
-      <a href="#schedule">Schedule</a>
-      <a href="#classes">Classes</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#connect">Connect</a>
-    </div>
-  </nav>
-
   <section id="schedule" class="v2-section schedule-section">
     <div class="container schedule-layout">
       <div class="section-copy">
@@ -429,49 +419,8 @@ const classCards = [
     border-radius: 50%;
   }
 
-  .section-nav {
-    position: sticky;
-    top: 92px;
-    z-index: 90;
-    overflow-x: auto;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
-    background: rgba(242, 238, 215, 0.96);
-    backdrop-filter: blur(12px);
-  }
-
-  .section-nav-inner {
-    display: flex;
-    width: max-content;
-    min-width: 100%;
-    align-items: center;
-    gap: 1.2rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .section-nav span,
-  .section-nav a {
-    white-space: nowrap;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .section-nav span {
-    color: #4f6047;
-  }
-
-  .section-nav a {
-    color: var(--text);
-  }
-
-  .section-nav a:hover {
-    color: var(--maroon);
-  }
-
   .v2-section {
-    scroll-margin-top: 150px;
+    scroll-margin-top: 105px;
     padding: 5.5rem 0;
   }
 
@@ -876,12 +825,8 @@ const classCards = [
   }
 
   @media (min-width: 1024px) {
-    .section-nav {
-      top: 116px;
-    }
-
     .v2-section {
-      scroll-margin-top: 170px;
+      scroll-margin-top: 132px;
     }
   }
 </style>
