@@ -13,11 +13,11 @@ const { title, image } = Astro.props;
   <Img
     src={image}
     alt=""
-    widths={[640, 1440]}
+    widths={[480, 768, 1024, 1440]}
     sizes="100vw"
     loading="eager"
     fetchpriority="high"
-    quality={55}
+    quality={45}
     class="page-hero-img"
   />
   <h1>{title}</h1>

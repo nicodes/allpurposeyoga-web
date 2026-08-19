@@ -52,18 +52,25 @@ import { teachers } from '../data/teachers';
             <Img src={t.image} alt={t.name} widths={[400, 640]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2.5rem)" class="teacher-card-img" />
             <div class="teacher-body">
               <h3>{t.name}</h3>
-              <button class="bio-trigger" type="button" data-dialog={`teacher-bio-${index}`}>
+              <button class="bio-trigger" type="button" popovertarget={`teacher-bio-${index}`}>
                 {t.bioLabel}
               </button>
-              <dialog
+              <div
                 id={`teacher-bio-${index}`}
                 class="teacher-dialog"
                 aria-labelledby={`teacher-name-${index}`}
+                popover
               >
                 <div class="dialog-shell">
                   <div class="dialog-header">
                     <h3 id={`teacher-name-${index}`}>{t.modalName ?? t.name}</h3>
-                    <button class="dialog-close" type="button" data-close-dialog aria-label="Close biography">
+                    <button
+                      class="dialog-close"
+                      type="button"
+                      popovertarget={`teacher-bio-${index}`}
+                      popovertargetaction="hide"
+                      aria-label="Close biography"
+                    >
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
@@ -80,7 +87,7 @@ import { teachers } from '../data/teachers';
                     </div>
                   </div>
                 </div>
-              </dialog>
+              </div>
             </div>
           </article>
         ))}
@@ -89,22 +96,6 @@ import { teachers } from '../data/teachers';
   </section>
 
 </Base>
-
-<script>
-  document.querySelectorAll<HTMLButtonElement>('[data-dialog]').forEach((trigger) => {
-    const dialog = document.getElementById(trigger.dataset.dialog ?? '') as HTMLDialogElement | null;
-
-    if (!dialog) return;
-
-    trigger.addEventListener('click', () => dialog.showModal());
-    dialog.querySelectorAll<HTMLButtonElement>('[data-close-dialog]').forEach((button) => {
-      button.addEventListener('click', () => dialog.close());
-    });
-    dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-  });
-</script>
 
 <style>
   .intro-grid {
@@ -250,7 +241,7 @@ import { teachers } from '../data/teachers';
     margin-bottom: 0;
   }
 
-  :global(html:has(.teacher-dialog[open])) {
+  :global(html:has(.teacher-dialog:popover-open)) {
     overflow: hidden;
   }
 
