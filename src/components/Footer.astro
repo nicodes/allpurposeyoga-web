@@ -11,11 +11,13 @@ const year = new Date().getFullYear();
     </a>
 
     <div class="footer-contact">
+      <a class="footer-schedule" href="/schedule/">View schedule</a>
       <strong>Boulder</strong>
       <p>
         2825 Wilderness Place<br />
         Boulder, CO 80301
       </p>
+      <a class="footer-phone" href="tel:2035205145">203-520-5145</a>
       <a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a>
     </div>
 
@@ -85,6 +87,37 @@ const year = new Date().getFullYear();
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
+  }
+
+  .footer-phone {
+    display: block;
+  }
+
+  .footer-schedule {
+    display: inline-flex;
+    min-height: 40px;
+    margin-bottom: 1rem;
+    padding: 0.6rem 0.9rem;
+    align-items: center;
+    border: 2px solid var(--maroon);
+    border-radius: 999px;
+    background: var(--maroon);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .footer-schedule:hover {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--text);
+  }
+
+  .footer-schedule:focus-visible {
+    outline: 2px solid var(--maroon);
+    outline-offset: 3px;
   }
 
   .icons {

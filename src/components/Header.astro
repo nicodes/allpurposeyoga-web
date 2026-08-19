@@ -24,7 +24,7 @@ const trainings = [
     </a>
 
     <nav class="secondary-nav" aria-label="Explore All Purpose Yoga">
-      <a href="/events/">Events</a>
+      <a href="/schedule/">Schedule</a>
       <details class="trainings-menu">
         <summary>Trainings</summary>
         <ul>
@@ -34,22 +34,19 @@ const trainings = [
         </ul>
       </details>
       <a href="/about/">About</a>
+      <a href="/connect/">Connect</a>
     </nav>
-
-    <div class="header-actions">
-      <a class="header-cta pricing-cta" href="/#pricing">Pricing</a>
-      <a class="header-cta schedule-cta" href="/#schedule">View schedule</a>
-    </div>
 
     <details class="mobile-more">
       <summary aria-label="Open more navigation">
         <span></span><span></span><span></span>
       </summary>
       <nav aria-label="More navigation">
-        <a href="/events/">Events</a>
+        <a href="/schedule/">Schedule</a>
         <a href="/nada-yoga/">Mantra Magic</a>
         <a href={trainings[1].href}>Bridging The Gap To Teaching</a>
         <a href="/about/">About Us</a>
+        <a href="/connect/">Connect</a>
       </nav>
     </details>
   </div>
@@ -90,49 +87,6 @@ const trainings = [
     display: none;
   }
 
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .header-cta {
-    display: inline-flex;
-    min-height: 36px;
-    align-items: center;
-    justify-content: center;
-    padding: 0.55rem 0.72rem;
-    border: 2px solid var(--maroon);
-    border-radius: 999px;
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 180ms ease;
-  }
-
-  .pricing-cta {
-    color: var(--maroon);
-  }
-
-  .pricing-cta:hover {
-    background: var(--maroon);
-    color: var(--white);
-  }
-
-  .schedule-cta {
-    background: var(--maroon);
-    color: var(--white);
-  }
-
-  .schedule-cta:hover {
-    border-color: #7d2038;
-    background: #7d2038;
-    color: var(--white);
-  }
-
   .mobile-more {
     flex: 0 0 auto;
   }
@@ -157,7 +111,6 @@ const trainings = [
   }
 
   .mobile-more > summary:focus-visible,
-  .header-cta:focus-visible,
   .secondary-nav a:focus-visible,
   .trainings-menu > summary:focus-visible {
     outline: 2px solid var(--maroon);
@@ -205,16 +158,6 @@ const trainings = [
 
     .site-header :global(.header-logo) {
       width: 44px;
-    }
-
-    .header-actions {
-      gap: 0.25rem;
-    }
-
-    .header-cta {
-      min-height: 32px;
-      padding: 0.45rem 0.55rem;
-      font-size: 0.58rem;
     }
 
     .mobile-more > summary {
@@ -297,16 +240,6 @@ const trainings = [
 
     .trainings-menu li a:hover {
       color: var(--maroon);
-    }
-
-    .header-actions {
-      gap: 0.65rem;
-    }
-
-    .header-cta {
-      min-height: 40px;
-      padding: 0.62rem 1rem;
-      font-size: 0.74rem;
     }
 
     .mobile-more {

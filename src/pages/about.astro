@@ -47,19 +47,40 @@ import { teachers } from '../data/teachers';
       <h2 class="center">inspired teachers</h2>
 
       <div class="teacher-grid">
-        {teachers.map((t) => (
+        {teachers.map((t, index) => (
           <article class="card teacher-card">
             <Img src={t.image} alt={t.name} widths={[400, 640]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2.5rem)" class="teacher-card-img" />
             <div class="teacher-body">
               <h3>{t.name}</h3>
-              <details>
-                <summary>{t.bioLabel}</summary>
-                <div class="bio">
-                  <Img src={t.portrait} alt={t.modalName ?? t.name} widths={[140, 280]} sizes="140px" class="bio-img" />
-                  <h4>{t.modalName ?? t.name}</h4>
-                  {t.bio.split('\n\n').map((p) => <p>{p}</p>)}
+              <button class="bio-trigger" type="button" data-dialog={`teacher-bio-${index}`}>
+                {t.bioLabel}
+              </button>
+              <dialog
+                id={`teacher-bio-${index}`}
+                class="teacher-dialog"
+                aria-labelledby={`teacher-name-${index}`}
+              >
+                <div class="dialog-shell">
+                  <div class="dialog-header">
+                    <h3 id={`teacher-name-${index}`}>{t.modalName ?? t.name}</h3>
+                    <button class="dialog-close" type="button" data-close-dialog aria-label="Close biography">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="dialog-body">
+                    <Img
+                      src={t.portrait}
+                      alt={t.modalName ?? t.name}
+                      widths={[200, 400]}
+                      sizes="200px"
+                      class="dialog-portrait"
+                    />
+                    <div class="dialog-copy">
+                      {t.bio.split('\n\n').map((p) => <p>{p}</p>)}
+                    </div>
+                  </div>
                 </div>
-              </details>
+              </dialog>
             </div>
           </article>
         ))}
@@ -67,14 +88,23 @@ import { teachers } from '../data/teachers';
     </div>
   </section>
 
-  <section class="section cta-band center">
-    <div class="container">
-      <p class="kicker">book a</p>
-      <h2>class or workshop</h2>
-      <a class="btn" href="/classes/">Browse Classes</a>
-    </div>
-  </section>
 </Base>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-dialog]').forEach((trigger) => {
+    const dialog = document.getElementById(trigger.dataset.dialog ?? '') as HTMLDialogElement | null;
+
+    if (!dialog) return;
+
+    trigger.addEventListener('click', () => dialog.showModal());
+    dialog.querySelectorAll<HTMLButtonElement>('[data-close-dialog]').forEach((button) => {
+      button.addEventListener('click', () => dialog.close());
+    });
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
+</script>
 
 <style>
   .intro-grid {
@@ -119,41 +149,122 @@ import { teachers } from '../data/teachers';
     margin-bottom: 0.5rem;
   }
 
-  details summary {
+  .bio-trigger {
+    padding: 0;
+    border: 0;
+    background: transparent;
     color: var(--maroon);
+    font: inherit;
     font-weight: 600;
     cursor: pointer;
   }
 
-  details summary::-webkit-details-marker {
-    display: none;
+  .bio-trigger:hover {
+    color: var(--gold);
   }
 
-  details summary::marker {
-    content: "";
+  .bio-trigger:focus-visible,
+  .dialog-close:focus-visible {
+    outline: 2px solid var(--maroon);
+    outline-offset: 4px;
   }
 
-  details summary::after {
-    content: " +";
+  .teacher-dialog {
+    position: fixed;
+    inset: 0;
+    width: min(840px, calc(100% - 2rem));
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 18px;
+    background: var(--white);
+    color: var(--text);
+    box-shadow: 0 28px 90px rgba(30, 15, 19, 0.35);
   }
 
-  details[open] summary::after {
-    content: " −";
+  .teacher-dialog::backdrop {
+    background: rgba(20, 13, 15, 0.78);
+    backdrop-filter: blur(3px);
   }
 
-  .bio {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(51, 51, 51, 0.1);
+  .dialog-shell {
+    display: flex;
+    max-height: calc(100dvh - 2rem);
+    flex-direction: column;
   }
 
-  .bio h4 {
-    font-family: var(--font-display);
-    color: var(--maroon);
-    font-size: 1.25rem;
+  .dialog-header {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
   }
 
-  .cta-band {
+  .dialog-header h3 {
+    margin: 0;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+
+  .dialog-close {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+    padding: 0;
+    place-items: center;
+    border: 1px solid rgba(160, 44, 73, 0.25);
+    border-radius: 50%;
     background: var(--cream);
+    color: var(--maroon);
+    cursor: pointer;
+  }
+
+  .dialog-close span {
+    font-size: 1.7rem;
+    line-height: 1;
+    transform: translateY(-1px);
+  }
+
+  .dialog-body {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  :global(.dialog-portrait) {
+    width: 160px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+
+  .dialog-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  :global(html:has(.teacher-dialog[open])) {
+    overflow: hidden;
+  }
+
+  @media (min-width: 700px) {
+    .dialog-body {
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    :global(.dialog-portrait) {
+      position: sticky;
+      top: 0;
+      width: 200px;
+    }
   }
 </style>

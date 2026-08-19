@@ -2,10 +2,24 @@
 import Base from '../layouts/Layout.astro';
 import Img from '../components/Img.astro';
 import PageHero from '../components/PageHero.astro';
+
+const leadFormFields = JSON.stringify({
+  firstName: { type: 'text', label: 'First name', required: true },
+  lastName: { type: 'text', label: 'Last name', required: true },
+  email: { type: 'email', label: 'Email', required: true },
+  phoneNumber: { type: 'phone-number', label: 'Phone number', required: true },
+  'lead-message': {
+    type: 'text',
+    label: 'Message',
+    required: true,
+    hidden: false,
+    placeholder: 'Share any questions or interests you have with us!',
+  },
+});
 ---
 
 <Base
-  title="Connect - All Purpose Yoga"
+  title="Connect | All Purpose Yoga"
   description="Connect with All Purpose Yoga at 2825 Wilderness Place, Boulder, CO 80301 or email info@allpurposeyoga.com."
 >
   <PageHero
@@ -13,34 +27,63 @@ import PageHero from '../components/PageHero.astro';
     image="/wp-content/uploads/2026/07/Gemini_Generated_Image_aq7d9uaq7d9uaq7d-compressed.png"
   />
 
-  <section class="section">
-    <div class="container connect-grid">
-      <Img
-        src="/wp-content/uploads/2025/12/IMG_0022.jpeg"
-        alt="All Purpose Yoga studio"
-        widths={[480, 768, 1024]}
-        sizes="(min-width: 900px) 45vw, calc(100vw - 2.5rem)"
-        class="connect-grid-img"
-      />
-      <div>
-        <h2 class="subheading">Address</h2>
-        <p>
-          2825 Wilderness Place<br />
-          Boulder, CO 80301
-        </p>
-        <h2 class="subheading">Email</h2>
-        <p><a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a></p>
-        <p>Interested in joining our Trade Team? Drop us a line to learn more!</p>
-        <p><strong>Positions Available:</strong> Light Studio Cleaning, Instagram/Marketing</p>
-      </div>
-    </div>
-  </section>
+  <section class="connect-section">
+    <div class="container connect-layout">
+      <div class="connect-primary">
+        <Img
+          src="/wp-content/uploads/2025/12/IMG_0022.jpeg"
+          alt="Students resting in the All Purpose Yoga studio"
+          widths={[480, 768, 1200]}
+          sizes="(min-width: 900px) 58vw, calc(100vw - 2.5rem)"
+          class="connect-studio-image"
+        />
 
-  <section class="section testimonials-section">
-    <div class="container">
-      <h2 class="subheading center">Testimonials</h2>
-      <div class="testimonial-grid">
-        <figure class="card">
+        <div class="contact-cards">
+          <article class="contact-card">
+            <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true">
+              <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
+            </svg>
+            <h2>Address</h2>
+            <address>
+              2825 Wilderness Place<br />
+              Boulder, CO 80301
+            </address>
+          </article>
+
+          <article class="contact-card">
+            <svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true">
+              <path fill="currentColor" d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm9 7 8-5H4l8 5Zm0 2.3L3 8.7V17h18V8.7l-9 5.6Z" />
+            </svg>
+            <h2>Email</h2>
+            <a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a>
+          </article>
+        </div>
+
+        <div class="trade-team-copy">
+          <p>Interested in joining our Trade Team? Drop us a line to learn more!</p>
+          <p><strong>Positions Available:</strong> Light Studio Cleaning, Instagram/Marketing</p>
+        </div>
+
+        <div class="lead-form">
+          <script
+            is:inline
+            async
+            type="module"
+            id="momence-plugin-lead-form-src"
+            host_id="87939"
+            fields="firstName,lastName,email,phoneNumber,lead-message"
+            token="zQ7O99NeXl"
+            country_code="us"
+            source_id="82349"
+            data-field-def={leadFormFields}
+            src="https://momence.com/plugin/lead-form/lead-form.js"
+          ></script>
+        </div>
+      </div>
+
+      <aside class="testimonials" aria-labelledby="testimonials-heading">
+        <h2 id="testimonials-heading">Testimonials</h2>
+        <figure>
           <blockquote>
             “This is such an incredible studio in Boulder. I had the pleasure of attending an early
             evening flow class and an afternoon special offering which was a yin yoga and essential
@@ -49,7 +92,7 @@ import PageHero from '../components/PageHero.astro';
           </blockquote>
           <figcaption>— M C</figcaption>
         </figure>
-        <figure class="card">
+        <figure>
           <blockquote>
             “Such a calm, welcoming, and beautiful space! I’ve been to a couple classes here and
             felt welcomed in by the instructor and other participants. Chill, fun and relaxing folks
@@ -57,52 +100,149 @@ import PageHero from '../components/PageHero.astro';
           </blockquote>
           <figcaption>— Allison S</figcaption>
         </figure>
-      </div>
+      </aside>
     </div>
   </section>
 </Base>
 
 <style>
-  .connect-grid {
+  :global(:root) {
+    --momenceColorBackground: #fbf7ea;
+    --momenceColorPrimary: 160, 44, 73;
+    --momenceColorBlack: 3, 1, 13;
+  }
+
+  .connect-section {
+    padding: 3rem 0 5rem;
+    background: linear-gradient(180deg, rgba(245, 234, 202, 0.58), rgba(245, 234, 202, 0.25));
+  }
+
+  .connect-layout {
     display: grid;
-    gap: 2.5rem;
-    align-items: center;
+    gap: 3rem;
+    align-items: start;
   }
 
-  @media (min-width: 900px) {
-    .connect-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+  .connect-primary {
+    min-width: 0;
   }
 
-  .testimonials-section {
-    background: var(--beige);
+  :global(.connect-studio-image) {
+    width: 100%;
+    max-height: 540px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 18px 50px rgba(70, 31, 42, 0.12);
   }
 
-  .testimonial-grid {
+  .contact-cards {
     display: grid;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.4rem;
+    width: calc(100% - 3rem);
+    margin: -1rem auto 0;
   }
 
-  @media (min-width: 800px) {
-    .testimonial-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .testimonial-grid figure {
-    margin: 0;
+  .contact-card {
     padding: 1.5rem;
+    border-radius: 24px;
+    background: var(--white);
+    text-align: center;
+    box-shadow: 0 0 32px rgba(160, 44, 73, 0.3);
   }
 
-  .testimonial-grid blockquote {
-    margin: 0 0 1rem;
+  .contact-card svg {
+    color: var(--maroon);
+  }
+
+  .contact-card h2 {
+    margin: 0.35rem 0 0.8rem;
+    color: var(--gold);
+    font-size: 1.5rem;
+    letter-spacing: 0;
+  }
+
+  .contact-card address {
+    font-style: normal;
+  }
+
+  .contact-card a {
+    overflow-wrap: anywhere;
+  }
+
+  .trade-team-copy {
+    max-width: 620px;
+    margin: 2.5rem auto 1.5rem;
+    text-align: center;
+  }
+
+  .trade-team-copy p {
+    margin-bottom: 0.75rem;
+  }
+
+  .lead-form {
+    min-height: 390px;
+  }
+
+  .testimonials {
+    padding: 2rem;
+    border-radius: 12px;
+    background: var(--white);
+    box-shadow: 0 18px 50px rgba(70, 31, 42, 0.1);
+  }
+
+  .testimonials h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    letter-spacing: -0.04em;
+  }
+
+  .testimonials figure {
+    margin: 0;
+  }
+
+  .testimonials figure + figure {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(51, 51, 51, 0.12);
+  }
+
+  .testimonials blockquote {
+    margin: 0 0 0.75rem;
     font-style: italic;
   }
 
-  .testimonial-grid figcaption {
-    font-weight: 600;
+  .testimonials figcaption {
     color: var(--maroon);
+    font-weight: 600;
+  }
+
+  @media (min-width: 640px) {
+    .contact-cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: calc(100% - 5rem);
+      margin-top: -3rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    :global(.page-hero) {
+      justify-content: flex-start;
+      padding-left: max(1.25rem, calc((100vw - var(--max-width)) / 2 + 1.25rem));
+      text-align: left;
+    }
+
+    .connect-section {
+      padding-bottom: 6rem;
+    }
+
+    .connect-layout {
+      grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+      gap: 2.5rem;
+    }
+
+    .testimonials {
+      position: sticky;
+      top: 110px;
+    }
   }
 </style>
