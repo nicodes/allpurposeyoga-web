@@ -46,39 +46,42 @@ import { teachers } from '../data/teachers';
             <Img src={t.image} alt={t.name} widths={[400, 640]} sizes="(min-width: 1000px) 33vw, (min-width: 640px) 50vw, calc(100vw - 2.5rem)" class="teacher-card-img" />
             <div class="teacher-body">
               <h3>{t.name}</h3>
-              <button class="bio-trigger" type="button" popovertarget={`teacher-bio-${index}`}>
-                {t.bioLabel}
-              </button>
-              <div
-                id={`teacher-bio-${index}`}
-                class="teacher-dialog"
-                aria-labelledby={`teacher-name-${index}`}
-                popover
-              >
-                <div class="dialog-shell">
-                  <div class="dialog-header">
-                    <h3 id={`teacher-name-${index}`}>{t.modalName ?? t.name}</h3>
-                    <button
-                      class="dialog-close"
-                      type="button"
-                      popovertarget={`teacher-bio-${index}`}
-                      popovertargetaction="hide"
-                      aria-label="Close biography"
-                    >
-                      <span aria-hidden="true">×</span>
-                    </button>
-                  </div>
-                  <div class="dialog-body">
-                    <Img
-                      src={t.portrait}
-                      alt={t.modalName ?? t.name}
-                      widths={[200, 400]}
-                      sizes="200px"
-                      class="dialog-portrait"
-                    />
-                    <div class="dialog-copy">
-                      {t.bio.split('\n\n').map((p) => <p>{p}</p>)}
-                    </div>
+            </div>
+            <button
+              class="bio-trigger"
+              type="button"
+              popovertarget={`teacher-bio-${index}`}
+              aria-label={`Read ${t.name}'s biography`}
+            ></button>
+            <div
+              id={`teacher-bio-${index}`}
+              class="teacher-dialog"
+              aria-labelledby={`teacher-name-${index}`}
+              popover
+            >
+              <div class="dialog-shell">
+                <div class="dialog-header">
+                  <h3 id={`teacher-name-${index}`}>{t.modalName ?? t.name}</h3>
+                  <button
+                    class="dialog-close"
+                    type="button"
+                    popovertarget={`teacher-bio-${index}`}
+                    popovertargetaction="hide"
+                    aria-label="Close biography"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="dialog-body">
+                  <Img
+                    src={t.portrait}
+                    alt={t.modalName ?? t.name}
+                    widths={[200, 400]}
+                    sizes="200px"
+                    class="dialog-portrait"
+                  />
+                  <div class="dialog-copy">
+                    {t.bio.split('\n\n').map((p) => <p>{p}</p>)}
                   </div>
                 </div>
               </div>
@@ -130,25 +133,31 @@ import { teachers } from '../data/teachers';
     padding: 1.25rem 1.5rem 1.5rem;
   }
 
+  .teacher-card {
+    position: relative;
+  }
+
   .teacher-body h3 {
-    margin-bottom: 0.5rem;
+    margin: 0;
   }
 
   .bio-trigger {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
     padding: 0;
     border: 0;
+    border-radius: inherit;
     background: transparent;
-    color: var(--maroon);
-    font: inherit;
-    font-weight: 600;
     cursor: pointer;
   }
 
-  .bio-trigger:hover {
-    color: var(--gold);
+  .bio-trigger:focus-visible {
+    outline: 3px solid var(--maroon);
+    outline-offset: -3px;
   }
 
-  .bio-trigger:focus-visible,
   .dialog-close:focus-visible {
     outline: 2px solid var(--maroon);
     outline-offset: 4px;

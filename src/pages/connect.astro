@@ -60,11 +60,9 @@ const leadFormFields = JSON.stringify({
 
         <div class="lead-form" data-field-def={leadFormFields}>
           <div class="form-prompt" data-form-prompt>
-            <h2>Send us a message</h2>
-            <p>Load our secure Momence contact form when you are ready to get in touch.</p>
-            <button class="load-form" type="button" data-load-form>Load contact form</button>
+            <p>Loading contact form...</p>
             <noscript>
-              <a class="load-form" href="mailto:info@allpurposeyoga.com">Email the studio</a>
+              <a href="mailto:info@allpurposeyoga.com">Email the studio</a>
             </noscript>
           </div>
         </div>
@@ -98,40 +96,30 @@ const leadFormFields = JSON.stringify({
   (() => {
     const container = document.querySelector('.lead-form');
     const prompt = document.querySelector('[data-form-prompt]');
-    const loadButton = document.querySelector('[data-load-form]');
 
-    if (!container || !prompt || !loadButton) return;
+    if (!container || !prompt) return;
 
-    loadButton.addEventListener(
-      'click',
-      () => {
-        loadButton.setAttribute('disabled', '');
-        loadButton.textContent = 'Loading form...';
-
-        const formScript = document.createElement('script');
-        formScript.async = true;
-        formScript.type = 'module';
-        formScript.id = 'momence-plugin-lead-form-src';
-        formScript.setAttribute('host_id', '87939');
-        formScript.setAttribute('fields', 'firstName,lastName,email,phoneNumber,lead-message');
-        formScript.setAttribute('token', 'zQ7O99NeXl');
-        formScript.setAttribute('country_code', 'us');
-        formScript.setAttribute('source_id', '82349');
-        formScript.setAttribute('data-field-def', container.getAttribute('data-field-def') ?? '{}');
-        formScript.src = 'https://momence.com/plugin/lead-form/lead-form.js';
-        formScript.addEventListener('load', () => prompt.remove());
-        formScript.addEventListener('error', () => {
-          const message = document.createElement('p');
-          const link = document.createElement('a');
-          link.href = 'mailto:info@allpurposeyoga.com';
-          link.textContent = 'info@allpurposeyoga.com';
-          message.append('We could not load the form. Email us at ', link, '.');
-          prompt.replaceChildren(message);
-        });
-        container.append(formScript);
-      },
-      { once: true },
-    );
+    const formScript = document.createElement('script');
+    formScript.async = true;
+    formScript.type = 'module';
+    formScript.id = 'momence-plugin-lead-form-src';
+    formScript.setAttribute('host_id', '87939');
+    formScript.setAttribute('fields', 'firstName,lastName,email,phoneNumber,lead-message');
+    formScript.setAttribute('token', 'zQ7O99NeXl');
+    formScript.setAttribute('country_code', 'us');
+    formScript.setAttribute('source_id', '82349');
+    formScript.setAttribute('data-field-def', container.getAttribute('data-field-def') ?? '{}');
+    formScript.src = 'https://momence.com/plugin/lead-form/lead-form.js';
+    formScript.addEventListener('load', () => prompt.remove());
+    formScript.addEventListener('error', () => {
+      const message = document.createElement('p');
+      const link = document.createElement('a');
+      link.href = 'mailto:info@allpurposeyoga.com';
+      link.textContent = 'info@allpurposeyoga.com';
+      message.append('We could not load the form. Email us at ', link, '.');
+      prompt.replaceChildren(message);
+    });
+    container.append(formScript);
   })();
 </script>
 
@@ -181,6 +169,8 @@ const leadFormFields = JSON.stringify({
   }
 
   .contact-card svg {
+    display: block;
+    margin: 0 auto;
     color: var(--maroon);
   }
 
@@ -223,42 +213,8 @@ const leadFormFields = JSON.stringify({
     box-shadow: 0 18px 50px rgba(70, 31, 42, 0.1);
   }
 
-  .form-prompt h2 {
-    margin-bottom: 0.75rem;
-  }
-
-  .load-form {
-    display: inline-flex;
-    min-height: 48px;
-    margin-top: 1rem;
-    padding: 0.8rem 1.25rem;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: 999px;
-    background: var(--maroon);
-    color: var(--white);
-    font: inherit;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  .load-form:hover {
-    background: var(--gold);
-    color: var(--text);
-  }
-
-  .load-form:focus-visible {
-    outline: 3px solid var(--gold);
-    outline-offset: 3px;
-  }
-
-  .load-form:disabled {
-    opacity: 0.7;
-    cursor: wait;
+  .form-prompt p {
+    margin: 0;
   }
 
   .testimonials {
