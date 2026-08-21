@@ -1,12 +1,20 @@
 ---
 import Base from '../layouts/Layout.astro';
+
+interface Props {
+  events?: boolean;
+}
+
+const { events = false } = Astro.props;
 ---
 
 <Base
-  title="Schedule | All Purpose Yoga"
-  description="View the live weekly class schedule at All Purpose Yoga in Boulder, CO and reserve your next class."
+  title={events ? 'Events | All Purpose Yoga' : 'Schedule | All Purpose Yoga'}
+  description={events
+    ? 'View upcoming events at All Purpose Yoga in Boulder, CO and reserve your spot.'
+    : 'View the live weekly class schedule at All Purpose Yoga in Boulder, CO and reserve your next class.'}
 >
-  <section class="schedule-section" aria-label="Live class schedule">
+  <section class="schedule-section" aria-label={events ? 'Upcoming events' : 'Live class schedule'}>
     <div class="container">
       <div class="schedule-widget">
         <div class="schedule-status" data-schedule-status aria-live="polite">
@@ -18,9 +26,9 @@ import Base from '../layouts/Layout.astro';
             <a href="https://momence.com/All-Purpose-Yoga">View the schedule on Momence</a>
           </p>
         </noscript>
-        <script is:inline>
+        <script is:inline define:vars={{ events }}>
           (() => {
-            const view = new URLSearchParams(window.location.search).get('view');
+            const view = events ? 'events' : new URLSearchParams(window.location.search).get('view');
             const mount = document.querySelector('#ribbon-schedule');
             const status = document.querySelector('[data-schedule-status]');
 
@@ -36,7 +44,7 @@ import Base from '../layouts/Layout.astro';
               eventsTab.classList.add('apy-events-tab');
               eventsTab.setAttribute('aria-pressed', view === 'events' ? 'true' : 'false');
               eventsTab.addEventListener('click', () => {
-                window.location.assign('/schedule/?view=events');
+                window.location.assign('/events/');
               });
               tabs[1].after(eventsTab);
 

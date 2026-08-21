@@ -29,6 +29,7 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
 
     <nav class="secondary-nav" aria-label="Explore All Purpose Yoga">
       <a href="/schedule/" aria-current={isCurrent('/schedule/') ? 'page' : undefined}>Schedule</a>
+      <a href="/events/" aria-current={isCurrent('/events/') ? 'page' : undefined}>Events</a>
       <details class="trainings-menu">
         <summary class:list={{ active: hasActiveTraining }}>Trainings</summary>
         <ul>
@@ -47,6 +48,7 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
       </summary>
       <nav aria-label="More navigation">
         <a href="/schedule/" aria-current={isCurrent('/schedule/') ? 'page' : undefined}>Schedule</a>
+        <a href="/events/" aria-current={isCurrent('/events/') ? 'page' : undefined}>Events</a>
         <a href="/nada-yoga/" aria-current={isCurrent('/nada-yoga/') ? 'page' : undefined}>Mantra Magic</a>
         <a href={trainings[1].href}>Bridging The Gap To Teaching</a>
         <a href="/about/" aria-current={isCurrent('/about/') ? 'page' : undefined}>About Us</a>
