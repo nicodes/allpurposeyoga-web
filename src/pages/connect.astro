@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Layout.astro';
 import Img from '../components/Img.astro';
-import PageHero from '../components/PageHero.astro';
 
 const leadFormFields = JSON.stringify({
   firstName: { type: 'text', label: 'First name', required: true },
@@ -22,11 +21,6 @@ const leadFormFields = JSON.stringify({
   title="Connect | All Purpose Yoga"
   description="Connect with All Purpose Yoga at 2825 Wilderness Place, Boulder, CO 80301 or email info@allpurposeyoga.com."
 >
-  <PageHero
-    title="Connect"
-    image="/wp-content/uploads/2026/07/Gemini_Generated_Image_aq7d9uaq7d9uaq7d-compressed.png"
-  />
-
   <section class="connect-section">
     <div class="container connect-layout">
       <div class="connect-primary">
@@ -309,12 +303,6 @@ const leadFormFields = JSON.stringify({
   }
 
   @media (min-width: 900px) {
-    :global(.page-hero) {
-      justify-content: flex-start;
-      padding-left: max(1.25rem, calc((100vw - var(--max-width)) / 2 + 1.25rem));
-      text-align: left;
-    }
-
     .connect-section {
       padding-bottom: 6rem;
     }
