@@ -9,23 +9,22 @@ import Base from '../layouts/Layout.astro';
   <section class="schedule-section" aria-label="Live class schedule">
     <div class="container">
       <div class="schedule-widget">
-        <div class="embed-prompt" data-schedule-prompt>
-          <h2>Find your next practice</h2>
-          <p>Load the live Momence calendar to browse classes, workshops, and events.</p>
-          <button class="load-widget" type="button" data-load-schedule>Load live schedule</button>
-          <noscript>
-            <a class="load-widget" href="https://momence.com/All-Purpose-Yoga">View schedule on Momence</a>
-          </noscript>
+        <div class="schedule-status" data-schedule-status aria-live="polite">
+          <p>Loading live schedule...</p>
         </div>
-        <div id="ribbon-schedule" hidden></div>
+        <div id="ribbon-schedule"></div>
+        <noscript>
+          <p class="schedule-fallback">
+            <a href="https://momence.com/All-Purpose-Yoga">View the schedule on Momence</a>
+          </p>
+        </noscript>
         <script is:inline>
           (() => {
             const view = new URLSearchParams(window.location.search).get('view');
             const mount = document.querySelector('#ribbon-schedule');
-            const prompt = document.querySelector('[data-schedule-prompt]');
-            const loadButton = document.querySelector('[data-load-schedule]');
+            const status = document.querySelector('[data-schedule-status]');
 
-            if (!mount || !prompt || !loadButton) return;
+            if (!mount || !status) return;
 
             const addEventsTab = () => {
               const tabs = [...mount.querySelectorAll('.momence-event_type_select-button')];
@@ -68,43 +67,31 @@ import Base from '../layouts/Layout.astro';
               return true;
             };
 
-            const loadSchedule = () => {
-              loadButton.setAttribute('disabled', '');
-              loadButton.textContent = 'Loading schedule...';
-              mount.removeAttribute('hidden');
+            const scheduleScript = document.createElement('script');
+            scheduleScript.async = true;
+            scheduleScript.type = 'module';
+            scheduleScript.setAttribute('host_id', '87939');
+            scheduleScript.setAttribute('teacher_ids', '[]');
+            scheduleScript.setAttribute('location_ids', '[]');
+            scheduleScript.setAttribute('tag_ids', view === 'events' ? '[173863]' : '[]');
+            scheduleScript.setAttribute('default_filter', 'show-all');
+            scheduleScript.setAttribute('locale', 'en');
+            scheduleScript.src = 'https://momence.com/plugin/host-schedule/host-schedule.js';
+            scheduleScript.addEventListener('load', () => status.setAttribute('hidden', ''));
+            scheduleScript.addEventListener('error', () => {
+              const message = document.createElement('p');
+              const link = document.createElement('a');
+              link.href = 'https://momence.com/All-Purpose-Yoga';
+              link.textContent = 'View the schedule on Momence.';
+              message.append('We could not load the calendar. ', link);
+              status.replaceChildren(message);
+            });
+            mount.after(scheduleScript);
 
-              const scheduleScript = document.createElement('script');
-              scheduleScript.async = true;
-              scheduleScript.type = 'module';
-              scheduleScript.setAttribute('host_id', '87939');
-              scheduleScript.setAttribute('teacher_ids', '[]');
-              scheduleScript.setAttribute('location_ids', '[]');
-              scheduleScript.setAttribute('tag_ids', view === 'events' ? '[173863]' : '[]');
-              scheduleScript.setAttribute('default_filter', 'show-all');
-              scheduleScript.setAttribute('locale', 'en');
-              scheduleScript.src = 'https://momence.com/plugin/host-schedule/host-schedule.js';
-              scheduleScript.addEventListener('load', () => {
-                prompt.setAttribute('hidden', '');
-              });
-              scheduleScript.addEventListener('error', () => {
-                const message = document.createElement('p');
-                const link = document.createElement('a');
-                link.href = 'https://momence.com/All-Purpose-Yoga';
-                link.textContent = 'View the schedule on Momence.';
-                message.append('We could not load the calendar. ', link);
-                prompt.replaceChildren(message);
-                mount.setAttribute('hidden', '');
-              });
-              mount.after(scheduleScript);
-
-              const observer = new MutationObserver(() => {
-                if (addEventsTab()) observer.disconnect();
-              });
-              observer.observe(mount, { childList: true, subtree: true });
-            };
-
-            loadButton.addEventListener('click', loadSchedule, { once: true });
-            if (view) loadSchedule();
+            const observer = new MutationObserver(() => {
+              if (addEventsTab()) observer.disconnect();
+            });
+            observer.observe(mount, { childList: true, subtree: true });
           })();
         </script>
       </div>
@@ -130,52 +117,10 @@ import Base from '../layouts/Layout.astro';
     margin: 0 auto;
   }
 
-  .embed-prompt {
-    max-width: 620px;
-    margin: 2rem auto 0;
-    padding: 2.5rem 1.5rem;
-    border-radius: 24px;
-    background: var(--white);
+  .schedule-status,
+  .schedule-fallback {
+    margin: 2rem auto;
     text-align: center;
-    box-shadow: 0 18px 50px rgba(70, 31, 42, 0.1);
-  }
-
-  .embed-prompt h2 {
-    margin-bottom: 0.75rem;
-  }
-
-  .load-widget {
-    display: inline-flex;
-    min-height: 48px;
-    margin-top: 1rem;
-    padding: 0.8rem 1.25rem;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: 999px;
-    background: var(--maroon);
-    color: var(--white);
-    font: inherit;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-
-  .load-widget:hover {
-    background: var(--gold);
-    color: var(--text);
-  }
-
-  .load-widget:focus-visible {
-    outline: 3px solid var(--gold);
-    outline-offset: 3px;
-  }
-
-  .load-widget:disabled {
-    opacity: 0.7;
-    cursor: wait;
   }
 
   @media (min-width: 768px) {
