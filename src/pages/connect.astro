@@ -25,7 +25,7 @@ const leadFormFields = JSON.stringify({
     <div class="container connect-layout">
       <div class="connect-primary">
         <Img
-          src="/wp-content/uploads/2025/12/IMG_0022.jpeg"
+          src="/wp-content/uploads/2026/07/Gemini_Generated_Image_t90fpjt90fpjt90f-compressed.png"
           alt="Students resting in the All Purpose Yoga studio"
           widths={[480, 768, 1200]}
           sizes="(min-width: 900px) 58vw, calc(100vw - 2.5rem)"
@@ -50,15 +50,39 @@ const leadFormFields = JSON.stringify({
             </svg>
             <h2>Email</h2>
             <a href="mailto:info@allpurposeyoga.com">info@allpurposeyoga.com</a>
+            <p>Email is the best way to reach us.</p>
           </article>
         </div>
 
-        <div class="trade-team-copy">
-          <p>Interested in joining our Trade Team? Drop us a line to learn more!</p>
-          <p><strong>Positions Available:</strong> Light Studio Cleaning, Instagram/Marketing</p>
-        </div>
+        <section class="opportunities" aria-label="Ways to join All Purpose Yoga">
+          <article class="opportunity-card">
+            <p class="opportunity-kicker">Work Trade at APY</p>
+            <h2>Help care for the space you love.</h2>
+            <p>
+              We offer a limited number of work-trade opportunities in exchange for yoga at APY.
+              Our work-trade team helps keep the studio clean, welcoming, and cared for, giving a
+              little back to the space that gives so much to our community.
+            </p>
+            <a class="opportunity-link" href="mailto:info@allpurposeyoga.com?subject=APY%20Work-Trade%20Interest">
+              Learn more <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-        <div class="lead-form" data-field-def={leadFormFields}>
+          <article class="opportunity-card">
+            <p class="opportunity-kicker">Want to Teach at APY?</p>
+            <h2>Come serve your community through yoga.</h2>
+            <p>
+              We’re looking for heart-led, authentic teachers who want to create connection, hold
+              meaningful space, and make yoga feel welcoming for everyone. If you see teaching as
+              more than a job, as a way to contribute, connect, and serve, we’d love to hear from you.
+            </p>
+            <a class="opportunity-link" href="mailto:info@allpurposeyoga.com?subject=APY%20Teaching%20Application">
+              Apply to teach at APY <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </section>
+
+        <div id="contact-form" class="lead-form" data-field-def={leadFormFields}>
           <div class="form-prompt" data-form-prompt>
             <p>Loading contact form...</p>
             <noscript>
@@ -189,14 +213,56 @@ const leadFormFields = JSON.stringify({
     overflow-wrap: anywhere;
   }
 
-  .trade-team-copy {
-    max-width: 620px;
-    margin: 2.5rem auto 1.5rem;
-    text-align: center;
+  .contact-card p {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
   }
 
-  .trade-team-copy p {
-    margin-bottom: 0.75rem;
+  .opportunities {
+    display: grid;
+    gap: 1.25rem;
+    margin: 3rem 0;
+  }
+
+  .opportunity-card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+    border-radius: 24px;
+    background: var(--maroon);
+    color: var(--white);
+    box-shadow: 0 18px 50px rgba(70, 31, 42, 0.14);
+  }
+
+  .opportunity-card h2 {
+    color: var(--white);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+
+  .opportunity-kicker {
+    margin-bottom: 0.65rem;
+    color: var(--cream);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .opportunity-link {
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .opportunity-link:hover {
+    color: var(--gold);
   }
 
   .lead-form {
@@ -255,6 +321,10 @@ const leadFormFields = JSON.stringify({
       grid-template-columns: repeat(2, minmax(0, 1fr));
       width: calc(100% - 5rem);
       margin-top: -3rem;
+    }
+
+    .opportunities {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 

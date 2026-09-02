@@ -44,7 +44,7 @@ const memberships = [
     name: 'Drop in',
     price: '$28',
     unit: 'one class',
-    href: 'https://momence.com/All-Purpose-Yoga/membership/3-Classes-for-%2440/519940',
+    href: 'https://momence.com/m/909708',
   },
   {
     name: 'Unlimited',
@@ -61,9 +61,24 @@ const memberships = [
 ];
 
 const classCards = [
-  ['5 classes', '$130', '3 month expiration'],
-  ['10 classes', '$220', '6 month expiration'],
-  ['20 classes', '$400', '12 month expiration'],
+  {
+    name: '5 Class Card',
+    price: '$130',
+    expiry: '3 month expiration',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/5-Class-Card/570277',
+  },
+  {
+    name: '10 Class Card',
+    price: '$220',
+    expiry: '6 month expiration',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/10-Class-Card/570278',
+  },
+  {
+    name: '20 Class Card',
+    price: '$400',
+    expiry: '12 month expiration',
+    href: 'https://momence.com/All-Purpose-Yoga/membership/20-Class-Card/570283',
+  },
 ];
 ---
 
@@ -73,7 +88,7 @@ const classCards = [
 >
   <section class="v2-hero">
     <Img
-      src="/wp-content/uploads/2025/12/IMG_0033.jpeg"
+      src="/wp-content/uploads/2026/07/Gemini_Generated_Image_45fp6p45fp6p45fp-compressed.png"
       alt="A restorative yoga class at All Purpose Yoga"
       widths={[480, 768, 1024, 1440]}
       sizes="100vw"
@@ -84,10 +99,10 @@ const classCards = [
     />
     <div class="v2-hero-shade"></div>
     <div class="container v2-hero-content">
-      <h1>Find the practice<br />that meets you here.</h1>
+      <h1>Smaller Studio, Smaller Classes<br />Feel Safe, Feel Seen</h1>
       <p class="v2-intro">
-        A locally operated, female owned studio for all levels, all goals, and all people. Located in
-        Boulder Colorado.
+        A locally operated, female owned yoga studio for all levels, all goals, and all people.
+        Located in Boulder, Colorado.
       </p>
       <div class="hero-actions">
         <a class="action action-primary" href="/schedule/">View the schedule</a>
@@ -170,11 +185,11 @@ const classCards = [
 
       <div class="class-card-row">
         <p>Prefer a class card?</p>
-        {classCards.map(([name, price, expiry]) => (
-          <div>
-            <strong>{name}</strong>
-            <span>{price} · {expiry}</span>
-          </div>
+        {classCards.map((card) => (
+          <a href={card.href} target="_blank" rel="noopener">
+            <strong>{card.name}</strong>
+            <span>{card.price} · {card.expiry}</span>
+          </a>
         ))}
       </div>
 
@@ -221,11 +236,11 @@ const classCards = [
   }
 
   .v2-hero h1 {
-    max-width: 880px;
+    max-width: 1050px;
     margin: 0;
     color: var(--white);
-    font-size: clamp(3rem, 9vw, 7rem);
-    line-height: 0.94;
+    font-size: clamp(2.7rem, 6.5vw, 5.2rem);
+    line-height: 0.98;
     letter-spacing: -0.065em;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
   }
@@ -492,6 +507,7 @@ const classCards = [
   }
 
   .class-card-row p,
+  .class-card-row a,
   .class-card-row strong,
   .class-card-row span {
     display: block;
@@ -501,6 +517,23 @@ const classCards = [
   .class-card-row p,
   .class-card-row strong {
     font-weight: 700;
+  }
+
+  .class-card-row a {
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: var(--white);
+    transition: background 180ms ease, color 180ms ease;
+  }
+
+  .class-card-row a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--gold);
+  }
+
+  .class-card-row a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
   }
 
   .class-card-row span {
