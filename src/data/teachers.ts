@@ -20,12 +20,6 @@ export const teachers: Teacher[] = [
     bio: 'Abigail is an experienced body coach and movement educator with over a decade of experience in therapeutic bodywork, yoga instruction and breathwork, dance, and prop manipulation. She is a passionate advocate for mindful, breath-focused movement with intentional, deliberate and personalized care for each practitioner. As a body coach her focus is to build strength and flexibility through mindful self-body analysis and incremental growth. Her goal is to help others craft deliberate, careful daily supportive routine structures, ultimately leading to greater enjoyment of life and less physical suffering. As a facilitator of the Body Wheel Therapy method, Abigail provides thoughtful, anatomy-informed stretches to support recovery, resilience, and long-term well-being. Body Wheel Therapy’s motto is “It is easier to relax when you feel supported”; Abigail aims to provide her students with the tools for that support. Abigail’s whole-body approach centers on targeted routines designed to help every ‘body’ build greater mobility, more mindful strength, and more detailed body awareness through practices that are both restorative and empowering. Certified as a Body Wheel Therapist and RYT 200–certified yoga teacher with continued training in restorative yoga, Pilates, HIIT and Prop manipulation, Abigail is excited to share her knowledge and support others toward sustainable, long-lasting and meaningful self-care.',
   },
   {
-    name: 'Amy Burgart',
-    image: '/wp-content/uploads/2026/07/Image-7-13-26-at-5.13-PM.jpeg',
-    portrait: '/wp-content/uploads/2026/07/Image-7-13-26-at-10.36-PM-224x300.jpeg',
-    bio: 'Amy has been teaching since 2015. Having trained in India and Nepal, she offers a holistic approach to yoga, incorporating meditation, breath control, and kundalini into her classes for a full mind, body, spirit practice. She is passionate about creating an inclusive environment, so you can expect options, hands-on assists, and precise cues to individualize the practice to each person’s needs.',
-  },
-  {
     name: 'Amy Ulmer',
     image: '/wp-content/uploads/2025/12/IMG_4608-scaled.jpeg',
     portrait: '/wp-content/uploads/2025/11/Amy-Ulmer-300x225.jpeg',
@@ -42,6 +36,12 @@ export const teachers: Teacher[] = [
     image: '/wp-content/uploads/2025/08/Betsy-Workman-compressed.jpg',
     portrait: '/wp-content/uploads/2025/08/Betsy-Workman-compressed-225x300.jpg',
     bio: 'Betsy Workman is a sound healer and gong practitioner based in Boulder, Colorado. Her sound baths offer a space for deep rest, nervous system balance, and heart-centered healing. With a grounded and intuitive approach, she invites participants to soften, release, and reconnect to inner stillness. When not facilitating sound healing, she enjoys life in the Colorado outdoors with her beloved dog, Newman.\n\nIG: @betsysoundhealer\nWebsite: betsyworkman.com',
+  },
+  {
+    name: 'Bridget Dorr',
+    image: '/wp-content/uploads/2026/bridget-dorr.jpeg',
+    portrait: '/wp-content/uploads/2026/bridget-dorr.jpeg',
+    bio: 'As an artist, Bridget is drawn to the practice of noticing ~ light, movement, texture, breath, and the small moments that are easy to pass by. Her yoga practice is an extension of that same curiosity: a place to slow down, tune in, and become more present in her body and everyday life. A full-time photographer and ceramic artist, Bridget spends much of her life creating with her hands and observing the world around her. She sees both art and yoga as practices of presence ~ opportunities to step away from perfection, get curious, and connect more deeply with ourselves. Her classes blend intentional movement, breath, strength, and moments of stillness, creating space for students to explore rather than perform. Bridget hopes her classes feel grounding, approachable, and human ~ a place to move, breathe, notice, and leave feeling a little more connected to yourself and the world around you.',
   },
   {
     name: 'Carlie Price',
@@ -139,5 +139,11 @@ export const teachers: Teacher[] = [
     image: '/wp-content/uploads/2026/06/Image-3-26-26-at-9.42-PM.jpeg',
     portrait: '/wp-content/uploads/2026/06/Image-3-26-26-at-9.42-PM-300x287.jpeg',
     bio: 'Victoria is a lifelong learner and forever a teacher—curious, grounded, and passionate about sharing what she’s learned along the way. She loves helping people of all ages feel stronger, clearer, and more connected through a holistic approach to bending the body, brightening the mind, and blooming the soul. After retiring as a high school Exercise Science and Health teacher, Victoria now brings her energy and experience beyond the classroom. She believes real growth comes from building physical strength and flexibility while also cultivating mental clarity and emotional resilience. Through yoga and meditation, she supports others in creating a life of balance, joy, and empowerment—one breath and one movement at a time. A self-proclaimed (and well-practiced) professional wanderer, Victoria has explored over 30 countries and lived in India and New Zealand. With a passport in hand, she’s often chasing sunsets on remote beaches, wandering mountain paths, or enjoying the local food and culture wherever she lands. Victoria holds a BS in Physical Education/Exercise Science from the University of Wisconsin–La Crosse, an MS in Health Education from Pennsylvania State University, and a Teaching Certification with a focus on Adventure Education from Northeastern Illinois University. She was honored as the 2011 IAHPERD Secondary PE Teacher of the Year and the 2012 Midwest District Secondary PE Teacher of the Year. Today, she continues to inspire as a certified Personal Trainer, Group Fitness Instructor, Level 2 Kundalini Yoga Instructor, Meditation Instructor, and Hatha Yoga Instructor.',
+  },
+  {
+    name: 'Wesley Johnson',
+    image: '/wp-content/uploads/2026/wesley-johnson.jpeg',
+    portrait: '/wp-content/uploads/2026/wesley-johnson.jpeg',
+    bio: 'After many trials and errors beginning in South Carolina, Wesley found Yoga and eventually the Little Yoga Studio. There he cleaned the studio through the work/trade program, took numerous classes, and assisted as well as attended several teacher trainings including 200 hr Hatha and Yin immersion. Wesley continues his ever expanding journey of self-mastery through various mindful awareness practices like, meditation, kirtan, astanga, and kaiut yoga. He strives to bring curious, spiritual seeking folks together in thriving communities like All Purpose Yoga. As well, he shares his wealth of knowledge and experience as a teacher focusing on holistic movement, alignment, and presence of breath. Whether engaging in dynamic vinyasa or inward Yin postures, Wesley brings a patient and grounded approach to each class. So come join in on the fun, let your curiosity and presence allow you to use the mat as a reset, a home base for ever-renewed resourcing, and resiliency of mind, body and soul!',
   },
 ];

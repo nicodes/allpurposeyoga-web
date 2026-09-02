@@ -1,17 +1,8 @@
 ---
 import Img from './Img.astro';
 
-const trainings = [
-  { label: 'Mantra Magic', href: '/nada-yoga/' },
-  {
-    label: 'Bridging The Gap To Teaching',
-    href: 'https://momence.com/All-Purpose-Yoga/Bridging-The-Gap-To-Teaching/128777664?skipPreview=true',
-  },
-];
-
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isCurrent = (href: string) => href.startsWith('/') && (href.replace(/\/+$/, '') || '/') === currentPath;
-const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
 ---
 
 <header class="site-header">
@@ -30,14 +21,6 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
     <nav class="secondary-nav" aria-label="Explore All Purpose Yoga">
       <a href="/schedule/" aria-current={isCurrent('/schedule/') ? 'page' : undefined}>Schedule</a>
       <a href="/events/" aria-current={isCurrent('/events/') ? 'page' : undefined}>Events</a>
-      <details class="trainings-menu">
-        <summary class:list={{ active: hasActiveTraining }}>Trainings</summary>
-        <ul>
-          {trainings.map((item) => (
-            <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a></li>
-          ))}
-        </ul>
-      </details>
       <a href="/about/" aria-current={isCurrent('/about/') ? 'page' : undefined}>About</a>
       <a href="/connect/" aria-current={isCurrent('/connect/') ? 'page' : undefined}>Connect</a>
     </nav>
@@ -49,8 +32,6 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
       <nav aria-label="More navigation">
         <a href="/schedule/" aria-current={isCurrent('/schedule/') ? 'page' : undefined}>Schedule</a>
         <a href="/events/" aria-current={isCurrent('/events/') ? 'page' : undefined}>Events</a>
-        <a href="/nada-yoga/" aria-current={isCurrent('/nada-yoga/') ? 'page' : undefined}>Mantra Magic</a>
-        <a href={trainings[1].href}>Bridging The Gap To Teaching</a>
         <a href="/about/" aria-current={isCurrent('/about/') ? 'page' : undefined}>About Us</a>
         <a href="/connect/" aria-current={isCurrent('/connect/') ? 'page' : undefined}>Connect</a>
       </nav>
@@ -106,19 +87,16 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
     cursor: pointer;
   }
 
-  .mobile-more > summary::-webkit-details-marker,
-  .trainings-menu > summary::-webkit-details-marker {
+  .mobile-more > summary::-webkit-details-marker {
     display: none;
   }
 
-  .mobile-more > summary::marker,
-  .trainings-menu > summary::marker {
+  .mobile-more > summary::marker {
     content: "";
   }
 
   .mobile-more > summary:focus-visible,
-  .secondary-nav a:focus-visible,
-  .trainings-menu > summary:focus-visible {
+  .secondary-nav a:focus-visible {
     outline: 2px solid var(--maroon);
     outline-offset: 3px;
   }
@@ -193,8 +171,7 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
       gap: 2rem;
     }
 
-    .secondary-nav > a,
-    .trainings-menu > summary {
+    .secondary-nav > a {
       color: var(--text);
       font-size: 0.76rem;
       font-weight: 700;
@@ -203,55 +180,7 @@ const hasActiveTraining = trainings.some((item) => isCurrent(item.href));
     }
 
     .secondary-nav > a:hover,
-    .secondary-nav > a[aria-current="page"],
-    .trainings-menu > summary:hover,
-    .trainings-menu > summary.active {
-      color: var(--maroon);
-    }
-
-    .trainings-menu {
-      position: relative;
-    }
-
-    .trainings-menu > summary {
-      cursor: pointer;
-    }
-
-    .trainings-menu > summary::after {
-      content: " +";
-      color: var(--maroon);
-    }
-
-    .trainings-menu[open] > summary::after {
-      content: " −";
-    }
-
-    .trainings-menu ul {
-      position: absolute;
-      top: calc(100% + 1rem);
-      left: -1.25rem;
-      width: 260px;
-      margin: 0;
-      padding: 0.75rem;
-      border-radius: 14px;
-      background: var(--white);
-      list-style: none;
-      box-shadow: 0 16px 38px rgba(51, 24, 31, 0.16);
-    }
-
-    .trainings-menu li + li {
-      border-top: 1px solid rgba(51, 51, 51, 0.1);
-    }
-
-    .trainings-menu li a {
-      display: block;
-      padding: 0.75rem 0.5rem;
-      color: var(--text);
-      font-size: 0.8rem;
-    }
-
-    .trainings-menu li a:hover,
-    .trainings-menu li a[aria-current="page"] {
+    .secondary-nav > a[aria-current="page"] {
       color: var(--maroon);
     }
 
