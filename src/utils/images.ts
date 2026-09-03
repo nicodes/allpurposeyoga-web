@@ -1,7 +1,7 @@
 import type { ImageMetadata } from 'astro';
 
 const modules = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/assets/wp-content/uploads/**/*.{jpeg,jpg,png}',
+  '/src/assets/images/**/*.{jpeg,jpg,png}',
   { eager: true }
 );
 
