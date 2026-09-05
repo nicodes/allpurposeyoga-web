@@ -5,6 +5,14 @@
 @import "@fontsource/work-sans/700.css";
 @import "@fontsource/young-serif/400.css";
 
+/* Native cross-document transitions: no client router or additional JavaScript.
+   Unsupported browsers keep normal navigation; reduced motion stays animation-free. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 :root {
   --white: #ffffff;
   --cream: #f2eed7;
