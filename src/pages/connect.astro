@@ -2,19 +2,6 @@
 import Base from '../layouts/Layout.astro';
 import Img from '../components/Img.astro';
 
-const leadFormFields = JSON.stringify({
-  firstName: { type: 'text', label: 'First name', required: true },
-  lastName: { type: 'text', label: 'Last name', required: true },
-  email: { type: 'email', label: 'Email', required: true },
-  phoneNumber: { type: 'phone-number', label: 'Phone number', required: true },
-  'lead-message': {
-    type: 'text',
-    label: 'Message',
-    required: true,
-    hidden: false,
-    placeholder: 'Share any questions or interests you have with us!',
-  },
-});
 ---
 
 <Base
@@ -82,14 +69,12 @@ const leadFormFields = JSON.stringify({
           </article>
         </section>
 
-        <div id="contact-form" class="lead-form" data-field-def={leadFormFields}>
-          <div class="form-prompt" data-form-prompt>
-            <p>Loading contact form...</p>
-            <noscript>
-              <a href="mailto:info@allpurposeyoga.com">Email the studio</a>
-            </noscript>
-          </div>
-        </div>
+        <!-- Use email while the Momence contact form is being repaired. -->
+        <section id="contact-form" class="contact-prompt" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Get in touch</h2>
+          <p>Have a question? We’d love to hear from you.</p>
+          <a class="btn" href="mailto:info@allpurposeyoga.com">Email the studio</a>
+        </section>
       </div>
 
       <aside class="testimonials" aria-labelledby="testimonials-heading">
@@ -116,44 +101,7 @@ const leadFormFields = JSON.stringify({
   </section>
 </Base>
 
-<script is:inline>
-  (() => {
-    const container = document.querySelector('.lead-form');
-    const prompt = document.querySelector('[data-form-prompt]');
-
-    if (!container || !prompt) return;
-
-    const formScript = document.createElement('script');
-    formScript.async = true;
-    formScript.type = 'module';
-    formScript.id = 'momence-plugin-lead-form-src';
-    formScript.setAttribute('host_id', '87939');
-    formScript.setAttribute('fields', 'firstName,lastName,email,phoneNumber,lead-message');
-    formScript.setAttribute('token', 'zQ7O99NeXl');
-    formScript.setAttribute('country_code', 'us');
-    formScript.setAttribute('source_id', '82349');
-    formScript.setAttribute('data-field-def', container.getAttribute('data-field-def') ?? '{}');
-    formScript.src = 'https://momence.com/plugin/lead-form/lead-form.js';
-    formScript.addEventListener('load', () => prompt.remove());
-    formScript.addEventListener('error', () => {
-      const message = document.createElement('p');
-      const link = document.createElement('a');
-      link.href = 'mailto:info@allpurposeyoga.com';
-      link.textContent = 'info@allpurposeyoga.com';
-      message.append('We could not load the form. Email us at ', link, '.');
-      prompt.replaceChildren(message);
-    });
-    container.append(formScript);
-  })();
-</script>
-
 <style>
-  :global(:root) {
-    --momenceColorBackground: #fbf7ea;
-    --momenceColorPrimary: 160, 44, 73;
-    --momenceColorBlack: 3, 1, 13;
-  }
-
   .connect-section {
     padding: 3rem 0 5rem;
     background: linear-gradient(180deg, rgba(245, 234, 202, 0.58), rgba(245, 234, 202, 0.25));
@@ -265,11 +213,7 @@ const leadFormFields = JSON.stringify({
     color: var(--gold);
   }
 
-  .lead-form {
-    min-height: 390px;
-  }
-
-  .form-prompt {
+  .contact-prompt {
     max-width: 620px;
     margin: 0 auto;
     padding: 2.5rem 1.5rem;
@@ -279,8 +223,8 @@ const leadFormFields = JSON.stringify({
     box-shadow: 0 18px 50px rgba(70, 31, 42, 0.1);
   }
 
-  .form-prompt p {
-    margin: 0;
+  .contact-prompt p {
+    margin: 0 0 1.5rem;
   }
 
   .testimonials {
