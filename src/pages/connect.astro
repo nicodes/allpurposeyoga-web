@@ -69,10 +69,10 @@ import Img from '../components/Img.astro';
           </article>
         </section>
 
-        <!-- Use email while the Momence contact form is being repaired. -->
         <section id="contact-form" class="contact-prompt" aria-labelledby="contact-heading">
           <h2 id="contact-heading">Get in touch</h2>
           <p>Have a question? We’d love to hear from you.</p>
+          <p class="contact-email">info@allpurposeyoga.com</p>
           <a class="btn" href="mailto:info@allpurposeyoga.com">Email the studio</a>
         </section>
       </div>
@@ -225,6 +225,10 @@ import Img from '../components/Img.astro';
 
   .contact-prompt p {
     margin: 0 0 1.5rem;
+  }
+
+  .contact-email {
+    overflow-wrap: anywhere;
   }
 
   .testimonials {
