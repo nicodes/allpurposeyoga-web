@@ -6,11 +6,12 @@ import Img from '../components/Img.astro';
 
 <Base
   title="Connect | All Purpose Yoga"
-  description="Connect with All Purpose Yoga at 2825 Wilderness Place, Boulder, CO 80301 or email info@allpurposeyoga.com."
+  description="Visit All Purpose Yoga at 2825 Wilderness Place, Boulder, CO 80301 or email info@allpurposeyoga.com. Work-trade and teaching inquiries welcome."
 >
   <section class="connect-section">
     <div class="container connect-layout">
       <div class="connect-primary">
+        <h1 class="connect-title">Connect</h1>
         <Img
           src="/images/pages/connect-meditation-class.png"
           alt="Students meditating in the All Purpose Yoga studio"
@@ -115,6 +116,11 @@ import Img from '../components/Img.astro';
 
   .connect-primary {
     min-width: 0;
+  }
+
+  .connect-title {
+    margin: 0 0 1.25rem;
+    font-size: clamp(2rem, 5vw, 3.25rem);
   }
 
   :global(.connect-studio-image) {

@@ -1,14 +1,120 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { formattedAddress, pageMarkdownPath, pageTitle, site } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description?: string;
+  preconnect?: string[];
+  robots?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description = site.description,
+  preconnect = [],
+  robots = 'index, follow',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(site.ogImage, Astro.site);
+const logo = new URL(site.logo, Astro.site);
+const markdownUrl = new URL(pageMarkdownPath(Astro.url.pathname), Astro.site);
+const llmsUrl = new URL('/llms.txt', Astro.site);
+const isHome = Astro.url.pathname === '/';
+const isIndexable = !robots.includes('noindex');
+
+const studioId = `${site.url}/#studio`;
+const websiteId = `${site.url}/#website`;
+
+const studioSchema = {
+  '@type': 'HealthClub',
+  '@id': studioId,
+  name: site.name,
+  alternateName: site.shortName,
+  url: site.url,
+  image: [ogImage.href, logo.href],
+  logo: logo.href,
+  description: site.description,
+  email: site.email,
+  priceRange: site.priceRange,
+  founder: {
+    '@type': 'Person',
+    name: site.founder,
+  },
+  address: {
+    '@type': 'PostalAddress',
+    ...site.address,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.geo.latitude,
+    longitude: site.geo.longitude,
+  },
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formattedAddress)}`,
+  areaServed: {
+    '@type': 'City',
+    name: 'Boulder',
+    containedInPlace: {
+      '@type': 'State',
+      name: 'Colorado',
+    },
+  },
+  sameAs: site.sameAs,
+  amenityFeature: site.amenities.map((name) => ({
+    '@type': 'LocationFeatureSpecification',
+    name,
+    value: true,
+  })),
+  knowsAbout: site.practices,
+  makesOffer: site.offers.map((offer) => ({
+    '@type': 'Offer',
+    name: offer.name,
+    price: offer.price,
+    priceCurrency: 'USD',
+    url: site.bookingUrl,
+  })),
+};
+
+const graph: Record<string, unknown>[] = [
+  {
+    '@type': 'WebSite',
+    '@id': websiteId,
+    name: site.name,
+    url: site.url,
+    description: site.description,
+    inLanguage: 'en-US',
+    publisher: { '@id': studioId },
+  },
+  studioSchema,
+];
+
+if (isIndexable && !isHome) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${site.url}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: pageTitle(Astro.url.pathname),
+        item: canonical.href,
+      },
+    ],
+  });
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': graph,
+};
 ---
 
 <!doctype html>
@@ -17,9 +123,45 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    <link rel="icon" type="image/png" href="/brand/favicon.png" />
-    <link rel="apple-touch-icon" href="/brand/favicon.png" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="color-scheme" content="light" />
+    <meta name="geo.region" content="US-CO" />
+    <meta name="geo.placename" content="Boulder" />
+    <meta name="geo.position" content={`${site.geo.latitude};${site.geo.longitude}`} />
+    <meta name="ICBM" content={`${site.geo.latitude}, ${site.geo.longitude}`} />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="describedby" href={llmsUrl.href} />
+    {isIndexable && <link rel="alternate" type="text/markdown" href={markdownUrl.href} />}
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/brand/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage.href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Students practicing yoga at All Purpose Yoga in Boulder, Colorado" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.href} />
+    {preconnect.map((href) => (
+      <>
+        <link rel="preconnect" href={href} crossorigin />
+        <link rel="dns-prefetch" href={href} />
+      </>
+    ))}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
