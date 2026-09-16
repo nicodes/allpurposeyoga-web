@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Layout.astro';
+---
+
+<Base
+  title="Page not found | All Purpose Yoga"
+  description="That page is not on the All Purpose Yoga website. Visit the schedule, about, or connect pages instead."
+  robots="noindex, follow"
+>
+  <section class="section">
+    <div class="container not-found">
+      <p class="kicker">404</p>
+      <h1>Page not found</h1>
+      <p>That page is not part of All Purpose Yoga. Try one of these instead.</p>
+      <p>
+        <a class="btn" href="/schedule/">View the schedule</a>
+        <a href="/">Home</a>
+        ·
+        <a href="/about/">About</a>
+        ·
+        <a href="/connect/">Connect</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .not-found {
+    max-width: 40rem;
+    padding-block: 3rem;
+  }
+
+  .not-found h1 {
+    margin-top: 0;
+  }
+
+  .not-found .btn {
+    margin-right: 1rem;
+  }
+</style>

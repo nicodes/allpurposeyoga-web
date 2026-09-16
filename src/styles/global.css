@@ -1,9 +1,7 @@
-@import "tailwindcss";
-@import "@fontsource/playfair-display/400.css";
-@import "@fontsource/work-sans/400.css";
-@import "@fontsource/work-sans/600.css";
-@import "@fontsource/work-sans/700.css";
-@import "@fontsource/young-serif/400.css";
+@import "@fontsource/playfair-display/latin-400.css";
+@import "@fontsource/work-sans/latin-400.css";
+@import "@fontsource/work-sans/latin-600.css";
+@import "@fontsource/work-sans/latin-700.css";
 
 /* Native cross-document transitions: no client router or additional JavaScript.
    Unsupported browsers keep normal navigation; reduced motion stays animation-free. */
@@ -23,7 +21,6 @@
   --olive: #6a7c5f;
 
   --font-display: "Playfair Display", serif;
-  --font-title: "Young Serif", serif;
   --font-body: "Work Sans", sans-serif;
 
   --max-width: 1140px;
@@ -63,6 +60,13 @@ a:hover {
   color: var(--gold);
 }
 
+button,
+summary,
+.btn,
+.action {
+  cursor: pointer;
+}
+
 p a {
   text-decoration: underline;
 }
@@ -78,6 +82,7 @@ h5 {
   margin: 0 0 0.5em;
 }
 
+h1,
 h2 {
   font-size: clamp(2.25rem, 6vw, 4.375rem);
   letter-spacing: -0.086em;
@@ -145,50 +150,6 @@ p {
   background: var(--gold);
   border-color: var(--gold);
   color: var(--white);
-}
-
-.page-hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 45vh;
-  padding: 8rem 1.25rem 6rem;
-  text-align: center;
-}
-
-.page-hero-img,
-.home-hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  .page-hero {
-    padding: 12.875rem 1.25rem 10rem;
-  }
-}
-
-.page-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(51, 51, 51, 0.15) 60%);
-}
-
-.page-hero h1 {
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-title);
-  font-size: clamp(2.25rem, 7vw, 3.125rem);
-  letter-spacing: 2px;
-  color: var(--white);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
-  margin: 0;
 }
 
 .card {

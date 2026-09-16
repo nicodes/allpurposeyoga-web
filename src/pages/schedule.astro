@@ -11,14 +11,23 @@ const { events = false } = Astro.props;
 <Base
   title={events ? 'Events | All Purpose Yoga' : 'Schedule | All Purpose Yoga'}
   description={events
-    ? 'View upcoming events at All Purpose Yoga in Boulder, CO and reserve your spot.'
-    : 'View the live weekly class schedule at All Purpose Yoga in Boulder, CO and reserve your next class.'}
+    ? 'Upcoming workshops, sound healing, and special events at All Purpose Yoga in Boulder, CO. Reserve your spot on Momence.'
+    : 'Live weekly yoga class schedule at All Purpose Yoga in Boulder, CO. Vinyasa, Yin, Kundalini, restorative, and more — book on Momence.'}
+  preconnect={['https://momence.com']}
 >
   <section
     class:list={['schedule-section', { 'events-section': events }]}
     aria-label={events ? 'Upcoming events' : 'Live class schedule'}
   >
     <div class="container">
+      <header class="schedule-intro">
+        <h1>{events ? 'Events' : 'Schedule'}</h1>
+        <p>
+          {events
+            ? 'Workshops, sound healing, and special offerings. Reserve your spot below.'
+            : 'Live weekly classes at the Boulder studio. Reserve your next practice below.'}
+        </p>
+      </header>
       <div class="schedule-widget">
         <div class="schedule-status" data-schedule-status aria-live="polite">
           <p>Loading live schedule...</p>
@@ -121,6 +130,21 @@ const { events = false } = Astro.props;
     min-height: 720px;
     padding: 2.5rem 0 5rem;
     background: #f8f5f0;
+  }
+
+  .schedule-intro {
+    max-width: 40rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
+
+  .schedule-intro h1 {
+    margin: 0 0 0.35em;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+  }
+
+  .schedule-intro p {
+    margin: 0;
   }
 
   .schedule-widget {

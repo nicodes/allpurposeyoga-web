@@ -1,17 +1,27 @@
 // @ts-check
+import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
-import tailwindcss from '@tailwindcss/vite';
+const site = 'https://www.allpurposeyoga.com';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'https://allpurposeyoga.com',
+  site,
   trailingSlash: 'always',
   build: {
-    inlineStylesheets: 'always'
+    inlineStylesheets: 'always',
   },
-
-  vite: {
-    plugins: [tailwindcss()]
-  }
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        return !/\.(md|txt|webmanifest)\/?$/.test(path) && !path.includes('/404');
+      },
+      namespaces: {
+        news: false,
+        xhtml: false,
+        image: false,
+        video: false,
+      },
+    }),
+  ],
 });
