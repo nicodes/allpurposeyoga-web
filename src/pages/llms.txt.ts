@@ -15,7 +15,7 @@ export const GET: APIRoute = () => {
 
 > Small, locally operated, female-owned yoga studio in Boulder, Colorado. Smaller studio, smaller classes — feel safe, feel seen. No added heat. All levels, all goals, all people.
 
-All Purpose Yoga (APY) is a welcoming neighborhood studio at ${formattedAddress}. Email is the best way to reach the studio: ${site.email}. There is no public phone number. Classes are booked on Momence: ${site.bookingUrl}.
+All Purpose Yoga (APY) is a welcoming neighborhood studio at ${formattedAddress}. Email is the best way to reach the studio: ${site.email}. Classes are booked on Momence: ${site.bookingUrl}.
 
 The name is a play on living and practicing with purpose. Membership is called Sangha, Sanskrit for community. The studio is purpose-driven (Seva: selfless service). Proprietor: ${site.founder}.
 
