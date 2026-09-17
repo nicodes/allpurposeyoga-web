@@ -7,16 +7,25 @@ const isCurrent = (href: string) => href.startsWith('/') && (href.replace(/\/+$/
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="logo" aria-label="All Purpose Yoga home">
-      <Img
-        src="/images/brand/logo-round.png"
-        alt="All Purpose Yoga"
-        widths={[60, 120]}
-        sizes="(min-width: 1024px) 60px, 48px"
-        loading="eager"
-        class="logo-img header-logo"
-      />
-    </a>
+    <div class="brand">
+      <a href="/" class="logo" aria-label="All Purpose Yoga home">
+        <Img
+          src="/images/brand/logo-round.png"
+          alt="All Purpose Yoga"
+          widths={[60, 120]}
+          sizes="(min-width: 1024px) 60px, 48px"
+          loading="eager"
+          class="logo-img header-logo"
+        />
+      </a>
+      <a
+        class="home-link"
+        href="/"
+        aria-current={isCurrent('/') ? 'page' : undefined}
+      >
+        Home
+      </a>
+    </div>
 
     <nav class="secondary-nav" aria-label="Explore All Purpose Yoga">
       <a href="/schedule/" aria-current={isCurrent('/schedule/') ? 'page' : undefined}>Schedule</a>
@@ -60,9 +69,34 @@ const isCurrent = (href: string) => href.startsWith('/') && (href.replace(/\/+$/
     gap: 0.55rem;
   }
 
-  .logo {
+  .brand {
+    display: flex;
     flex: 0 0 auto;
     margin-right: auto;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .logo {
+    flex: 0 0 auto;
+  }
+
+  .home-link {
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .home-link:hover,
+  .home-link[aria-current="page"] {
+    color: var(--maroon);
+  }
+
+  .home-link:focus-visible {
+    outline: 2px solid var(--maroon);
+    outline-offset: 3px;
   }
 
   .site-header :global(.header-logo) {
@@ -159,6 +193,10 @@ const isCurrent = (href: string) => href.startsWith('/') && (href.replace(/\/+$/
       min-height: 76px;
       padding: 0.35rem 1.25rem;
       gap: 2rem;
+    }
+
+    .brand {
+      gap: 1rem;
     }
 
     .site-header :global(.header-logo) {
