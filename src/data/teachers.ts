@@ -56,6 +56,18 @@ export const teachers: Teacher[] = [
     bio: 'I discovered yoga while living and adventuring in the High Sierra mountains of California in 2013. Since then, I’ve been deeply grateful for the inspiring teachers who have shared the practice with depth, authenticity, and curiosity. What began as a personal exploration gradually evolved into a desire to guide others along their own yogic path. My teaching is shaped by my background in massage therapy and a genuine fascination with how the body works. I’m drawn to the details—how a small shift can change everything, how breath creates space, and how strength and ease can coexist. I tend to blend precise fundamentals with exploration, emphasizing alignment and body awareness while encouraging both dedication and joy in the practice. When I’m not teaching, you’ll likely find me galavanting in the mountains snowboarding, building trails, hiking, biking or immersed in movement practice, studying therapeutic bodywork and continuing to explore the intersection of yoga, anatomy, and healing.',
   },
   {
+    name: 'Evalie Horner',
+    image: '/images/teachers/evalie-horner-card.jpeg',
+    portrait: '/images/teachers/evalie-horner-portrait.jpeg',
+    bio: 'Evalie Horner first encountered yoga as a young child in Oklahoma in the 1980s, when her mother gathered friends in their home to practice together, long before there were yoga studios nearby. She remembers loving the energy in the room—and that the family pets were drawn to it too. Evalie considers her mother, also named Evalie, her first yoga teacher. What began on the floor of her childhood home eventually became a spiritual and life path. Evalie is a yoga teacher, psychotherapist, writer, and poet. She holds 200- and 300-hour yoga teacher certifications, has trained in Yin Yoga and Grief Yoga Therapy, previously co-owned a yoga studio, and has continued her study of yoga’s philosophical and spiritual traditions through coursework in Naropa University’s MA Yoga Studies program. Evalie holds a PhD in psychology and works as a psychotherapist specializing in trauma, grief, neurodivergence, and LGBTQ+ experience. Her doctoral dissertation explored how depth psychology and yoga can help LGBTQ+ people heal from internalized shame. For Evalie, yoga is both an embodied physical practice and a spiritual path. Her study extends into yoga philosophy, history, mythology, texts, and Sanskrit. Particularly devoted to Śiva, she is drawn to yoga as a practice of transformation, paradox, embodiment, and liberation. Her teaching weaves together embodiment, depth, spirituality, curiosity, and poetry, including her own. She believes yoga can happen anywhere we become fully present, including wakesurfing behind her boat, Śiva, where she feels she has found samādhi.',
+  },
+  {
+    name: 'Ghita Carroll',
+    image: '/images/teachers/ghita-carroll-card.jpeg',
+    portrait: '/images/teachers/ghita-carroll-portrait.jpeg',
+    bio: 'Ghita has been practicing yoga for more than three decades and is excited to start a new chapter in her life as a yoga teacher. She fell in love with yoga, many moons ago, when she took a semester long yoga course at the University of Wisconsin, Madison. Since then she has worked with an abundance of amazing teachers, and practices many yoga styles including yin, vinyasa, hot, restorative, dabbled in partner and acro yoga. Ghita enjoys doing yoga with family, friends, community, at home with her chihuahua Kip, and outdoors! Last Spring, Ghita completed a Yin Yoga training led by Caitlin Rose Kenney housed here, at the beautiful APY studio. Ghita loves this space and it’s in the neighborhood where she and her husband, Jeff, have raised their kids Cecil and Paulina. Ghita is a yin enthusiast and believes in the power of slowing down and the benefits that brings to individuals and communities. Ghita holds a doctorate in Environmental Studies and worked in the field of sustainability and education for 26 years. Ghita cares deeply about connecting humans to the natural world and hopes to bring some of that passion into her yoga classes. She looks forward to seeing you on the mat!',
+  },
+  {
     name: 'Jacob Rudolph',
     image: '/images/teachers/jacob-rudolph-card.png',
     portrait: '/images/teachers/jacob-rudolph-portrait.png',
@@ -68,6 +80,12 @@ export const teachers: Teacher[] = [
     bio: 'Jade Powell is an entrepreneur, accountant, yogini, and proprietor of All Purpose Yoga in Boulder, Colorado. Jade earned her MBA and BA in Accounting from Sacred Heart University in Fairfield, Connecticut, where she was born and raised. In 2017, she visited a lifelong friend living in Boulder and the city pulled at her heartstrings for less than ten months before she relocated and decided to call it home. Jade’s relationship with Yoga began in the early 2000s, practicing Rodney Yee DVDs in the living room with her mom. Since then, she has continued her education and training in Vinyasa, Yin, and Trauma-Informed Yoga, allowing her practice and teaching to evolve alongside her life. In May 2025, The Little Yoga Studio, a beloved Boulder sanctuary where Jade had been teaching, closed its doors after 15 years. The loss was felt deeply throughout the community. With a curious heart, relentless ambition, a whole lot of synchronicity, and the support of countless friends, family members, and community members, Jade opened All Purpose Yoga just four months later. Her intention in creating APY was simple: to nurture and tend to a safe, welcoming place for people to practice Yoga and to build something that feels genuinely of and for the community. No moss grows on Jade’s stone. Outside the studio, you’ll find her playing drop-in ice hockey, bartending, riding her bike, baking, hiking, skiing, and, on occasion, painting.',
   },
   {
+    name: 'James Keener',
+    image: '/images/teachers/james-keener-card.jpeg',
+    portrait: '/images/teachers/james-keener-portrait.jpeg',
+    bio: 'James’ relationship with yoga utterly changed when he began a journey of healing and self-rediscovery from mental illness. Yin yoga was, in particular, a revelation that guided James back into a relationship with his body that he thought long lost. In yoga James found a cure from near constant dissociation and a community where he could feel unafraid in sharing his story. In his classes James provides a space where students can feel safe, be present in the moment, and explore their bodily experiences with compassion and ease. Outside of the studio James loves reading, running, watching movies, and spending time in nature.',
+  },
+  {
     name: 'Jared Schulte',
     image: '/images/teachers/jared-schulte-card.jpeg',
     portrait: '/images/teachers/jared-schulte-portrait.jpeg',
@@ -78,6 +96,12 @@ export const teachers: Teacher[] = [
     image: '/images/teachers/joe-chrissy-dinardo-card.jpeg',
     portrait: '/images/teachers/joe-chrissy-dinardo-portrait.jpeg',
     bio: 'Joe and Chrissy are a husband and wife duo joyfully bringing breathwork to All Purpose Yoga. With training and certifications in somatics, breathwork, nervous system, and plant medicine, their approach is trauma-informed and inclusive. They aim to empower people through their breath and body to meet their unique goals. With one foot in the corporate world, Joe enjoys supporting people with their relationship to work and in approaching their work in a peaceful, regulated way. Chrissy and Joe live in Niwot, CO with their two adopted cats. Joe enjoys pickleball, drumming, reading, and volunteering, and Chrissy enjoys singing, guitar, herbalism, cooking, pottery, and time in nature.',
+  },
+  {
+    name: 'Kate Diana',
+    image: '/images/teachers/kate-diana-card.jpeg',
+    portrait: '/images/teachers/kate-diana-portrait.jpeg',
+    bio: 'Kate started her yoga practice at a young age by borrowing DVDs from her local small-town library in Florida. She worked as a fitness instructor specializing in yoga for those experiencing MS, as well as mat-based Pilates, throughout college.\n\nAfter moving to Boulder in 2012, she continued her goal of learning and teaching others about the physical and mental benefits of movement, while providing a space for what comes up when we stay still. She received her 200-hour yoga certification in the winter of 2017 before continuing on to complete an additional 65-hour Yin Yoga certification in the fall of 2018.\n\nShe has taught throughout her time in Boulder, focusing her classes around the practice of Aparigraha—a spiritual philosophy of non-attachment. Kate believes in the importance of adapting her classes to fit her participants’ needs in real time, while keeping them accessible to all bodies.\n\nWhen not practicing yoga, you can find her tending to her small garden, walking her old pup, or enjoying the beautiful scenery around Boulder!',
   },
   {
     name: 'Martha Reifenberg',
