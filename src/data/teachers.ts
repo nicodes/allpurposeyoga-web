@@ -159,6 +159,12 @@ export const teachers: Teacher[] = [
     bio: 'A being of love and all that comes with it. One of her favorite things is to share laughter with others— life replenishing, healing, & vital laughter. In a world that is so often sick we need simple remedies for the modern soul ache. Laughter is an ancient and universal tool—something we can all share with one another. Taali has been a yogini since she was 15 and continues to be deeply immersed in the roadmap that is yoga. She was first taught meditation as a tool for calming the disturbed mind when she was 15. Since then she has been experimenting with yoga and meditation as a way for embodied and healthy living. As she navigates her later 20s, she finds new and insightful ways to integrate the epic wisdom of asana, yoga of the mind, chanting/singing, writing, and meditative techniques to ease the discomfort of life. Under the guidance of elders and teachers she continues to be immensely grateful for being guided to the right places and people at the right time as she continues traveling the waves of being human. Taali completed her 200 YTT in 2020 and continues to seek higher wisdom and learning. This included living in India for 7 months with one her teachers at a yogashram for four months. Then another three months serving in a humanitarian role with a local NGO where she got to share yoga, laughter, and seva with the beautiful vibrant community in Dabhoi, Gujarat. When not doing yoga or laughing you can usually find Taali madly in love with life, the hard, the magical, the simple: dancing to the ever present miracles in everyday living.',
   },
   {
+    name: 'Tessa Bolon',
+    image: '/images/teachers/tessa-bolon-card.jpeg',
+    portrait: '/images/teachers/tessa-bolon-portrait.jpeg',
+    bio: 'Hi! My name is Tessa and I love all types of yoga- as a student I\'ve practiced Hatha, Vinyasa, Yin, Ashtanga, Iyengar, and The Rocket. All of these practices have different focuses that have helped strengthen and deepen my understanding of self and yoga asana. As a teacher I strive to create an inclusive atmosphere that helps students of all levels better understand their own biomechanics and knowledge of the asana. I believe that the knowledge gained on the mat helps us be more aware and mindful while off the mat.',
+  },
+  {
     name: 'Victoria Otto',
     image: '/images/teachers/victoria-otto-card.jpeg',
     portrait: '/images/teachers/victoria-otto-portrait.jpeg',
@@ -169,5 +175,11 @@ export const teachers: Teacher[] = [
     image: '/images/teachers/wesley-johnson-profile.jpeg',
     portrait: '/images/teachers/wesley-johnson-profile.jpeg',
     bio: 'After many trials and errors beginning in South Carolina, Wesley found Yoga and eventually the Little Yoga Studio. There he cleaned the studio through the work/trade program, took numerous classes, and assisted as well as attended several teacher trainings including 200 hr Hatha and Yin immersion. Wesley continues his ever expanding journey of self-mastery through various mindful awareness practices like, meditation, kirtan, astanga, and kaiut yoga. He strives to bring curious, spiritual seeking folks together in thriving communities like All Purpose Yoga. As well, he shares his wealth of knowledge and experience as a teacher focusing on holistic movement, alignment, and presence of breath. Whether engaging in dynamic vinyasa or inward Yin postures, Wesley brings a patient and grounded approach to each class. So come join in on the fun, let your curiosity and presence allow you to use the mat as a reset, a home base for ever-renewed resourcing, and resiliency of mind, body and soul!',
+  },
+  {
+    name: 'Zoe Miller',
+    image: '/images/teachers/zoe-miller-card.jpeg',
+    portrait: '/images/teachers/zoe-miller-portrait.jpeg',
+    bio: 'Zoë started her yoga practice in the living room of her childhood home, practicing with a yoga for kids VHS tape. For many years yoga was in the background, but Zoë returned to regular practice during a gap semester in college, attending local classes. In college, she decided to take a leap and obtain her 200-hour yoga teacher certification. She trained with La Casa Shambala in Tenerife Spain, a spiritually, emotionally, and physically transformative experience. In 2026, she deepened her practice further, attending a prenatal yoga teacher training course. Zoë has a passion for teaching, not just yoga, but also swimming, ceramics, and artistic swimming. Connecting with her students is truly a meaningful and unique experience.',
   },
 ];
